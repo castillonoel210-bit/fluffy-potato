@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Woadie</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet"> <!-- Modern font -->
     
     <!-- EmailJS SDK -->
     <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
@@ -17,54 +17,54 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0; 
-            background-image: url('https://i.postimg.cc/BbRfFK8w/Picsart-25-08-21-18-26-14-695.jpg'); 
-            background-size: cover; 
-            background-position: center; 
-            background-repeat: no-repeat; 
-            background-attachment: fixed; 
-            min-height: 100vh; 
-            color: white; 
+            margin: 0; /* Remove default margin */
+            background-image: url('https://i.postimg.cc/BbRfFK8w/Picsart-25-08-21-18-26-14-695.jpg'); /* Background image */
+            background-size: cover; /* Cover the entire viewport */
+            background-position: center; /* Center the image */
+            background-repeat: no-repeat; /* Do not repeat the image */
+            background-attachment: fixed; /* Keep the background fixed during scrolling */
+            min-height: 100vh; /* Ensure the body takes at least the full height of the viewport */
+            color: white; /* Default text color */
         }
         header {
             text-align: center;
             margin-bottom: 20px;
-            padding: 20px; 
+            padding: 20px; /* Padding for header */
             border-radius: 5px;
         }
         h1 {
             color: #e2e627;
-            font-size: 3em; 
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
-            margin: 0; 
-            border: 2px solid black; 
-            padding: 10px; 
-            display: inline-block; 
-            font-family: 'Montserrat', sans-serif; 
+            font-size: 3em; /* Increased font size */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Shadow for depth */
+            margin: 0; /* Remove default margin */
+            border: 2px solid black; /* Black border */
+            padding: 10px; /* Padding for the text */
+            display: inline-block; /* Make the border wrap around the text */
+            font-family: 'Montserrat', sans-serif; /* Modern font */
         }
         h2 {
-            margin: 20px 0; 
+            margin: 20px 0; /* Margin for subheadings */
         }
         .info {
-            margin: 20px 0; 
-            padding: 15px; 
-            background-color: rgba(255, 255, 255, 0.8); 
-            color: #333; 
-            border-radius: 5px; 
+            margin: 20px 0; /* Margin for the info section */
+            padding: 15px; /* Padding for the info section */
+            background-color: rgba(255, 255, 255, 0.8); /* Background color for info */
+            color: #333; /* Text color for info */
+            border-radius: 5px; /* Rounded corners */
         }
         .benefit {
             cursor: pointer;
             padding: 10px;
             margin: 10px 0;
-            background-color: #e2e627; 
+            background-color: #e2e627; /* Shape color */
             border-radius: 5px;
             transition: background-color 0.3s;
         }
         .benefit:hover {
-            background-color: #cc0000; 
+            background-color: #cc0000; /* Change color on hover */
         }
         .benefit-info {
-            display: none; 
+            display: none; /* Hidden by default */
             padding: 10px;
             background-color: rgba(255, 255, 255, 0.9);
             border-radius: 5px;
@@ -75,29 +75,30 @@
             padding: 15px;
             background-color: rgba(255, 255, 255, 0.9);
             border-radius: 5px;
-            color: #333; 
+            color: #333; /* Text color for the info section */
         }
         .engaging-info h2 {
-            color: #cc0000; 
+            color: #cc0000; /* Header color */
         }
+        /* Checkout button styles */
         .checkout-container {
             display: flex;
-            justify-content: flex-end; 
+            justify-content: flex-end; /* Align button to the right */
             margin: 20px;
         }
         button {
-            padding: 10px 20px; 
-            font-size: 1.2em; 
-            background-color: #28a745; 
-            color: white; 
-            border: none; 
-            border-radius: 5px; 
-            cursor: pointer; 
-            width: 100%; 
-            max-width: 200px; 
+            padding: 10px 20px; /* Increased padding for a larger button */
+            font-size: 1.2em; /* Increased font size */
+            background-color: #28a745; /* Green background for better visibility */
+            color: white; /* Text color */
+            border: none; /* No border */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Pointer cursor on hover */
+            width: 100%; /* Full width of its container */
+            max-width: 200px; /* Optional: set a maximum width */
         }
         button:hover {
-            background-color: #218838; 
+            background-color: #218838; /* Darker green on hover */
         }
         .product {
             border: 1px solid #ccc;
@@ -105,7 +106,7 @@
             margin: 10px;
             width: 200px;
             text-align: center;
-            background-color: #000000; 
+            background-color: #000000; /* Semi-transparent background for products */
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
@@ -114,51 +115,52 @@
             font-size: 1.2em;
         }
         .original-product {
-            color: gold; 
+            color: gold; /* Unique color for Original Smart Honey */
         }
         .green-product {
-            color: green; 
+            color: green; /* Color for other products */
         }
         .video-placeholder {
             width: 100%;
-            max-width: 600px; 
-            margin: 20px auto; 
-            display: block; 
-            background-color: rgba(255, 255, 255, 0.9); 
-            border: 2px dashed #e2e627; 
-            border-radius: 5px; 
-            text-align: center; 
-            padding: 20px; 
+            max-width: 600px; /* Max width for videos */
+            margin: 20px auto; /* Center the videos */
+            display: block; /* Make it a block element */
+            background-color: rgba(255, 255, 255, 0.9); /* Light background */
+            border: 2px dashed #e2e627; /* Dashed border for placeholder */
+            border-radius: 5px; /* Rounded corners */
+            text-align: center; /* Center text */
+            padding: 20px; /* Padding for the placeholder */
         }
         .qr-container {
-            text-align: center; 
+            text-align: center; /* Center the QR container */
             color: yellow; 
-            margin: 20px 0; 
+            margin: 20px 0; /* Margin above and below QR code */
         }
         .qr-container h2 {
-            color: yellow; 
-            font-weight: bold; 
-            font-family: 'Montserrat', sans-serif; 
+            color: yellow; /* Yellow color for the QR code heading */
+            font-weight: bold; /* Bold font style */
+            font-family: 'Montserrat', sans-serif; /* Use the modern font */
         }
         .qr-container img {
-            width: 200px; 
-            height: auto; 
-            border: 2px solid #e2e627; 
-            border-radius: 5px; 
+            width: 200px; /* Set width for QR code */
+            height: auto; /* Maintain aspect ratio */
+            border: 2px solid #e2e627; /* Border around QR code */
+            border-radius: 5px; /* Rounded corners */
         }
+        /* Contact form styles */
         .contact-form {
-            margin: 25px 0; 
-            padding: 15px; 
-            background-color: rgb(3, 0, 0); 
-            border-radius: 10px; 
+            margin: 25px 0; /* Margin for the contact form */
+            padding: 15px; /* Padding for the form */
+            background-color: rgb(3, 0, 0); /* Background color for contact form */
+            border-radius: 10px; /* Rounded corners */
         }
         .contact-form input {
-            width: 100%; 
-            padding: 10px; 
-            margin: 10px 0; 
-            border: 1px solid #ccc; 
-            color: black; 
-            border-radius: 5px; 
+            width: 100%; /* Full width for input fields */
+            padding: 10px; /* Padding for input fields */
+            margin: 10px 0; /* Margin for spacing */
+            border: 1px solid #ccc; /* Border for input fields */
+            color: black; /* Font color */
+            border-radius: 5px; /* Rounded corners for input fields */
         }
     </style>
 </head>
