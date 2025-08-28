@@ -10,7 +10,7 @@
     <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script type="text/javascript">
         (function(){
-            emailjs.init("service_umowb8n"); // Replace with your EmailJS user ID
+            emailjs.init("service_umowb8n"); // Your EmailJS Service ID
         })();
     </script>
 
@@ -30,14 +30,16 @@
             text-align: center;
             margin-bottom: 20px;
             padding: 20px; /* Padding for header */
-            border-radius: 5px;
+            border-radius: 10px; /* Make corners smoother */
+            border: 4px solid #cc0000; /* Thicker border */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Add shadow for a pop effect */
+            background-color: rgba(0, 0, 0, 0.6); /* Dark background for contrast */
         }
         h1 {
             color: #e2e627;
-            font-size: 3em; /* Increased font size */
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Shadow for depth */
+            font-size: 3.5em; /* Increased font size for more prominence */
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7); /* More pronounced shadow */
             margin: 0; /* Remove default margin */
-            border: 2px solid black; /* Black border */
             padding: 10px; /* Padding for the text */
             display: inline-block; /* Make the border wrap around the text */
             font-family: 'Montserrat', sans-serif; /* Modern font */
@@ -51,6 +53,10 @@
             background-color: rgba(255, 255, 255, 0.8); /* Background color for info */
             color: #333; /* Text color for info */
             border-radius: 5px; /* Rounded corners */
+            font-weight: 600; /* Thicker text */
+        }
+        .info h2 {
+            font-weight: 700; /* Thicker header text */
         }
         .benefit {
             cursor: pointer;
@@ -76,9 +82,11 @@
             background-color: rgba(255, 255, 255, 0.9);
             border-radius: 5px;
             color: #333; /* Text color for the info section */
+            font-weight: 600; /* Thicker text */
         }
         .engaging-info h2 {
             color: #cc0000; /* Header color */
+            font-weight: 700; /* Thicker header text */
         }
         /* Checkout button styles */
         .checkout-container {
