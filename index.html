@@ -25,6 +25,9 @@
             background-attachment: fixed; /* Keep the background fixed during scrolling */
             min-height: 100vh; /* Ensure the body takes at least the full height of the viewport */
             color: white; /* Default text color */
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center items horizontally */
         }
         header {
             text-align: center;
@@ -34,6 +37,8 @@
             border: 4px solid #cc0000; /* Thicker border */
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Add shadow for a pop effect */
             background-color: rgba(0, 0, 0, 0.6); /* Dark background for contrast */
+            width: 100%; /* Full width */
+            max-width: 600px; /* Limit max width */
         }
         h1 {
             color: #e2e627;
@@ -54,6 +59,7 @@
             color: #333; /* Text color for info */
             border-radius: 5px; /* Rounded corners */
             font-weight: 600; /* Thicker text */
+            width: 90%; /* Make sections responsive */
         }
         .info h2 {
             font-weight: 700; /* Thicker header text */
@@ -83,6 +89,7 @@
             border-radius: 5px;
             color: #333; /* Text color for the info section */
             font-weight: 600; /* Thicker text */
+            width: 90%; /* Make sections responsive */
         }
         .engaging-info h2 {
             color: #cc0000; /* Header color */
@@ -131,18 +138,19 @@
         .video-placeholder {
             width: 100%;
             max-width: 600px; /* Max width for videos */
-            margin: 20px auto; /* Center the videos */
+            margin: 40px auto; /* Increased margin for more space around videos */
             display: block; /* Make it a block element */
-            background-color: rgba(255, 255, 255, 0.9); /* Light background */
-            border: 2px dashed #e2e627; /* Dashed border for placeholder */
+            background-color: rgba(50, 50, 50, 0.8); /* Darker background color */
+            border: 2px solid #e2e627; /* Solid border instead of dashed */
             border-radius: 5px; /* Rounded corners */
             text-align: center; /* Center text */
-            padding: 20px; /* Padding for the placeholder */
+            padding: 10px; /* Padding for the placeholder */
         }
         .qr-container {
             text-align: center; /* Center the QR container */
             color: yellow; 
             margin: 20px 0; /* Margin above and below QR code */
+            width: 90%; /* Make sections responsive */
         }
         .qr-container h2 {
             color: yellow; /* Yellow color for the QR code heading */
@@ -161,6 +169,7 @@
             padding: 15px; /* Padding for the form */
             background-color: rgb(3, 0, 0); /* Background color for contact form */
             border-radius: 10px; /* Rounded corners */
+            width: 90%; /* Make sections responsive */
         }
         .contact-form input {
             width: 100%; /* Full width for input fields */
@@ -169,6 +178,18 @@
             border: 1px solid #ccc; /* Border for input fields */
             color: black; /* Font color */
             border-radius: 5px; /* Rounded corners for input fields */
+        }
+        @media (max-width: 768px) {
+            .info, .engaging-info, .contact-form, .qr-container {
+                width: 90%; /* Make sections responsive */
+                padding: 10px; /* Adjust padding */
+            }
+            header {
+                padding: 15px; /* Adjust header padding for smaller screens */
+            }
+            button {
+                width: 100%; /* Full width for buttons */
+            }
         }
     </style>
 </head>
@@ -183,10 +204,10 @@
         <p>Here in Woadie, if you or a loved one are seeking insights and guidance on the path to recovery from concussions or navigating mental health challenges, you've come to the right place. I provide information and support tailored to help individuals at all stages of life. By serving food and engaging in community jogs, I empower people to help themselves while making a difference for those in need.</p>
     </div>
 
-    <!-- Video Placeholders moved here -->
+    <!-- Video Placeholders -->
     <div class="video-placeholder">
-        <p>Video Placeholder 1</p>
-        <img src="https://via.placeholder.com/560x315?text=Video+1" alt="Video Placeholder 1">
+        <h2>Watch how any woadie can help</h2>
+        <iframe width="260" height="315" src="https://www.youtube.com/embed/2hNcyxYL-Bs" frameborder="0" allowfullscreen></iframe>
     </div>
     <div class="video-placeholder">
         <p>Video Placeholder 2</p>
@@ -356,4 +377,4 @@
         displayProducts(); // Call the function to display products
     </script>
 </body>
-</html> 
+</html>
