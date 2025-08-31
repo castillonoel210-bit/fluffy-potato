@@ -10,7 +10,7 @@
     <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script type="text/javascript">
         (function(){
-            emailjs.init("service_umowb8n"); // Your EmailJS Service ID
+            emailjs.init("f6AD2aiDRZpO5AYjb"); // Public key added here
         })();
     </script>
 
@@ -357,14 +357,18 @@
             const email = document.getElementById('userEmail').value;
             const phone = document.getElementById('userPhone').value;
 
+            console.log("Submitting contact info...");
+            console.log(`Email: ${email}, Phone: ${phone}`);
+
             const templateParams = {
                 user_email: email,
                 user_phone: phone
             };
 
-            emailjs.send('service_umowb8n', 'template_72qnjzg', templateParams)
+            emailjs.send("service_umowb8n", "template_72qnjzg", templateParams)
                 .then(function(response) {
                     alert('Notification sent successfully!');
+                    console.log('SUCCESS!', response.status, response.text);
                     // Clear the input fields
                     document.getElementById('userEmail').value = '';
                     document.getElementById('userPhone').value = '';
