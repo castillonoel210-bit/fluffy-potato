@@ -7,10 +7,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet"> <!-- Modern font -->
     
     <!-- EmailJS SDK -->
-    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script type="text/javascript">
-        (function(){
-            emailjs.init("f6AD2aiDRZpO5AYjb"); // Public key added here
+        (function () {
+            emailjs.init({
+                publicKey: 'f6AD2aiDRZpO5AYjb',
+            });
         })();
     </script>
 
@@ -166,10 +168,11 @@
         /* Contact form styles */
         .contact-form {
             margin: 25px 0; /* Margin for the contact form */
-            padding: 15px; /* Padding for the form */
+            padding: 20px; /* Increased padding for better coverage */
             background-color: rgb(3, 0, 0); /* Background color for contact form */
             border-radius: 10px; /* Rounded corners */
-            width: 90%; /* Make sections responsive */
+            width: 95%; /* Slightly wider to ensure coverage */
+            box-sizing: border-box; /* Ensures padding is included in width */
         }
         .contact-form input {
             width: 100%; /* Full width for input fields */
@@ -180,9 +183,14 @@
             border-radius: 5px; /* Rounded corners for input fields */
         }
         @media (max-width: 768px) {
-            .info, .engaging-info, .contact-form, .qr-container {
+            .info, .engaging-info, .qr-container {
                 width: 90%; /* Make sections responsive */
                 padding: 10px; /* Adjust padding */
+            }
+            .contact-form {
+                width: 95%; /* Slightly wider for mobile */
+                padding: 15px; /* Increased padding for mobile */
+                box-sizing: border-box; /* Ensure padding is included in width */
             }
             header {
                 padding: 15px; /* Adjust header padding for smaller screens */
@@ -262,7 +270,8 @@
     <!-- Contact Information Form -->
     <div class="contact-form">
         <h2>Contact Information</h2>
-        <p>Please enter your email and phone number to receive notifications:</p>
+        <p>Please enter your name, email, and phone number to receive notifications:</p>
+        <input type="text" id="userName" name="user_name" placeholder="Your Name" required>
         <input type="email" id="userEmail" name="user_email" placeholder="Your Email" required>
         <input type="tel" id="userPhone" name="user_phone" placeholder="Your Phone Number" required>
         <p>📲 You can reach us via email or phone number provided above.</p>
@@ -354,22 +363,25 @@
         }
 
         function submitContactInfo() {
+            const name = document.getElementById('userName').value;
             const email = document.getElementById('userEmail').value;
             const phone = document.getElementById('userPhone').value;
 
             console.log("Submitting contact info...");
-            console.log(`Email: ${email}, Phone: ${phone}`);
+            console.log(`Name: ${name}, Email: ${email}, Phone: ${phone}`);
 
             const templateParams = {
+                user_name: name,
                 user_email: email,
-                user_phone: phone
+                user_phone: phone,
+                time: new Date().toLocaleString()
             };
 
             emailjs.send("service_umowb8n", "template_72qnjzg", templateParams)
                 .then(function(response) {
                     alert('Notification sent successfully!');
                     console.log('SUCCESS!', response.status, response.text);
-                    // Clear the input fields
+                    document.getElementById('userName').value = '';
                     document.getElementById('userEmail').value = '';
                     document.getElementById('userPhone').value = '';
                 }, function(error) {
