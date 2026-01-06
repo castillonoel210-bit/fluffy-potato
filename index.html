@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Woadie</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet"> <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <title>Woadie | Official Store</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script type="text/javascript">
         (function () {
             emailjs.init({
@@ -14,8 +16,15 @@
     </script>
 
     <style>
+        :root {
+            --tt-teal: #00f2ea;
+            --tt-pink: #ff0050;
+            --tt-black: #010101;
+            --woadie-yellow: #e2e627;
+        }
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0; 
             background-image: url('https://i.postimg.cc/BbRfFK8w/Picsart-25-08-21-18-26-14-695.jpg'); 
             background-size: cover; 
@@ -28,244 +37,259 @@
             flex-direction: column;
             align-items: center; 
         }
+
         header {
             text-align: center;
-            margin-bottom: 20px;
+            margin: 30px 0;
             padding: 20px; 
-            border-radius: 10px; 
+            border-radius: 15px; 
             border: 4px solid #cc0000; 
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); 
-            background-color: rgba(0, 0, 0, 0.6); 
-            width: 100%; 
+            box-shadow: 0 0 25px rgba(204, 0, 0, 0.4); 
+            background-color: rgba(0, 0, 0, 0.85); 
+            width: 90%; 
             max-width: 600px; 
         }
+
         h1 {
-            color: #e2e627;
+            color: var(--woadie-yellow);
             font-size: 3.5em; 
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7); 
+            text-shadow: 3px 3px 0px rgba(255, 0, 80, 0.5); 
             margin: 0; 
-            padding: 10px; 
-            display: inline-block; 
-            font-family: 'Montserrat', sans-serif; 
-        }
-        .info {
-            margin: 20px 0; 
-            padding: 15px; 
-            background-color: rgba(255, 255, 255, 0.8); 
-            color: #333; 
-            border-radius: 5px; 
-            font-weight: 600; 
-            width: 90%; 
-            max-width: 600px;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: -2px;
         }
 
-        /* TIKTOK SECTION STYLES */
-        .tiktok-showcase {
-            margin: 20px 0;
-            padding: 30px;
-            background-color: #000000; 
-            border: 3px solid #00f2ea; /* TikTok Teal */
-            border-radius: 15px;
-            width: 90%;
+        .content-card {
+            margin: 15px 0; 
+            padding: 25px; 
+            background-color: rgba(0, 0, 0, 0.9); 
+            border: 2px solid var(--tt-teal); 
+            border-radius: 15px; 
+            width: 90%; 
             max-width: 600px;
-            text-align: center;
             box-sizing: border-box;
-            box-shadow: 0 0 20px rgba(0, 242, 234, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
+
+        .content-card h2 {
+            margin-top: 0;
+            color: var(--tt-teal);
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            font-size: 1.4em;
+        }
+
+        .tiktok-special {
+            border: 3px solid var(--tt-pink);
+            box-shadow: 0 0 20px rgba(255, 0, 80, 0.2);
+        }
+
         .tiktok-btn {
-            background-color: #ff0050; /* TikTok Pink */
+            background-color: var(--tt-pink);
             color: white !important;
             padding: 18px 40px;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 800;
             border-radius: 50px;
             display: inline-block;
-            margin-top: 10px;
+            margin-top: 15px;
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.1em;
-            transition: transform 0.2s;
-            border: none;
+            transition: 0.3s;
             animation: pulse-glow 2s infinite;
         }
+
         @keyframes pulse-glow {
             0% { box-shadow: 0 0 0 0 rgba(255, 0, 80, 0.7); }
             70% { box-shadow: 0 0 0 15px rgba(255, 0, 80, 0); }
             100% { box-shadow: 0 0 0 0 rgba(255, 0, 80, 0); }
         }
-        .tiktok-btn:hover {
-            transform: scale(1.05);
-            background-color: #d60046;
-        }
 
         .benefit {
             cursor: pointer;
-            padding: 10px;
+            padding: 12px;
             margin: 10px 0;
-            background-color: #e2e627; 
-            border-radius: 5px;
-            transition: background-color 0.3s;
+            background-color: var(--woadie-yellow); 
+            color: black;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+            text-align: center;
         }
-        .benefit:hover { background-color: #cc0000; }
+        .benefit:hover {
+            background-color: var(--tt-teal);
+            transform: translateX(5px);
+        }
         .benefit-info {
             display: none; 
-            padding: 10px;
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 5px;
-            margin-top: 5px;
-        }
-        .engaging-info {
-            margin: 20px 0;
             padding: 15px;
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 5px;
-            color: #333; 
-            font-weight: 600; 
-            width: 90%; 
-            max-width: 600px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-left: 4px solid var(--tt-teal);
+            margin-bottom: 10px;
+            font-style: italic;
         }
-        .engaging-info h2 { color: #cc0000; font-weight: 700; }
-        
-        /* General Buttons */
-        button {
-            padding: 10px 20px; 
-            font-size: 1.2em; 
+
+        .contact-form input {
+            width: 100%; 
+            padding: 15px; 
+            margin: 12px 0; 
+            border: 2px solid #333; 
+            background: #111;
+            color: white; 
+            border-radius: 10px; 
+            box-sizing: border-box;
+            font-size: 1em;
+        }
+
+        .product-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .product {
+            border: 2px solid #333;
+            padding: 20px;
+            width: 240px;
+            text-align: center;
+            background-color: rgba(0,0,0,0.8); 
+            border-radius: 15px;
+        }
+        .original-product { color: gold; }
+        .green-product { color: #2ecc71; }
+
+        button.action-btn {
+            padding: 15px 25px; 
+            font-size: 1em; 
             background-color: #28a745; 
             color: white; 
             border: none; 
-            border-radius: 5px; 
+            border-radius: 50px; 
             cursor: pointer; 
-            width: 100%; 
-            max-width: 200px; 
-        }
-        button:hover { background-color: #218838; }
-        
-        .product {
-            border: 1px solid #ccc;
-            padding: 10px;
-            margin: 10px;
-            width: 200px;
-            text-align: center;
-            background-color: #000000; 
-            border-radius: 5px;
-        }
-        .original-product { color: gold; }
-        .green-product { color: green; }
-        
-        .video-placeholder {
+            font-weight: bold;
             width: 100%;
+            transition: 0.3s;
+        }
+
+        /* CART ITEM STYLING */
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255,255,255,0.05);
+            padding: 10px 15px;
+            margin: 8px 0;
+            border-radius: 8px;
+            border-left: 3px solid var(--tt-teal);
+        }
+        .remove-btn {
+            background-color: var(--tt-pink);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 24px;
+            text-align: center;
+            transition: 0.2s;
+        }
+        .remove-btn:hover {
+            transform: scale(1.2);
+            background-color: #ff4d88;
+        }
+
+        /* TOTAL DISPLAY STYLING */
+        #total-display {
+            margin-top: 15px;
+            padding: 10px;
+            font-size: 1.5em;
+            font-weight: 800;
+            color: var(--tt-teal);
+            border-top: 1px solid #333;
+            text-align: right;
+            font-family: 'Montserrat', sans-serif;
+            text-shadow: 0 0 10px rgba(0, 242, 234, 0.4);
+        }
+
+        .video-placeholder {
+            width: 90%;
             max-width: 600px; 
-            margin: 40px auto; 
-            display: block; 
-            background-color: rgba(50, 50, 50, 0.8); 
-            border: 2px solid #e2e627; 
-            border-radius: 5px; 
-            text-align: center; 
-            padding: 10px; 
-        }
-        .qr-container {
-            text-align: center; 
-            color: yellow; 
             margin: 20px 0; 
-            width: 90%; 
-        }
-        .contact-form {
-            margin: 25px 0; 
-            padding: 20px; 
-            background-color: rgb(3, 0, 0); 
-            border-radius: 10px; 
-            width: 95%; 
-            max-width: 600px;
-            box-sizing: border-box; 
-        }
-        .contact-form input {
-            width: 100%; 
-            padding: 10px; 
-            margin: 10px 0; 
-            border: 1px solid #ccc; 
-            color: black; 
-            border-radius: 5px; 
-        }
-        @media (max-width: 768px) {
-            .info, .engaging-info, .qr-container, .tiktok-showcase {
-                width: 90%; 
-                padding: 10px; 
-            }
+            background-color: black; 
+            border: 2px solid var(--woadie-yellow); 
+            border-radius: 15px; 
+            text-align: center; 
+            padding: 15px; 
+            box-sizing: border-box;
         }
     </style>
 </head>
 <body>
+
     <header>
         <h1>Woadie</h1>
     </header>
     
-    <div class="info">
+    <div class="content-card">
         <h2>About Woadie</h2>
-        <p>Here in Woadie, if you or a loved one are seeking insights and guidance on the path to recovery from concussions or navigating mental health challenges, you've come to the right place. I provide information and support tailored to help individuals at all stages of life. By serving food and engaging in community jogs, I empower people to help themselves while making a difference for those in need.</p>
+        <p>Seeking insights and guidance on recovery from concussions or mental health challenges? You've come to the right place. We provide support tailored for all stages of life.</p>
     </div>
 
-    <div class="tiktok-showcase">
-        <h2 style="color: white; margin-top: 0; font-family: 'Montserrat', sans-serif;">Official Woadie TikTok</h2>
-        <p style="color: #00f2ea; font-weight: bold; font-size: 1.1em; margin-bottom: 20px;">Follow us and shop our latest products!</p>
-        
+    <div class="content-card tiktok-special">
+        <h2 style="color: white;">Official TikTok Shop</h2>
+        <p style="color: var(--tt-teal); font-weight: bold;">Join the movement @anime108310</p>
         <a href="https://www.tiktok.com/@anime108310?lang=en" target="_blank" class="tiktok-btn">
             🛒 VISIT MY TIKTOK SHOP
         </a>
-        <p style="font-size: 0.8em; margin-top: 15px; color: #888;">Secure checkout via TikTok @anime108310</p>
     </div>
 
     <div class="video-placeholder">
-        <h2>Watch how any woadie can help</h2>
-        <iframe width="260" height="315" src="https://www.youtube.com/embed/2hNcyxYL-Bs" frameborder="0" allowfullscreen></iframe>
+        <h2 style="font-family: 'Montserrat'; color: var(--woadie-yellow);">Watch Our Mission</h2>
+        <iframe width="100%" height="315" src="https://www.youtube.com/embed/2hNcyxYL-Bs" frameborder="0" style="border-radius: 10px;" allowfullscreen></iframe>
     </div>
 
-    <div class="engaging-info">
-        <h2>Why Choose Woadie Honey?</h2>
-        <p>At Woadie, we believe in the power of nature. Our honey is not just a sweet treat; it’s a commitment to your well-being.</p>
-        <ul>
-            <li><strong>Pure & Natural:</strong> Sourced directly from the finest hives.</li>
-            <li><strong>Health Benefits:</strong> Packed with antioxidants, vitamins, and minerals.</li>
-            <li><strong>Supports Local Beekeepers:</strong> Sustainable practices for local communities.</li>
-        </ul>
-    </div>
-
-    <div class="info">
-        <h2>Benefits of Woadie Honey</h2>
-        <div class="benefit" onclick="toggleInfo('benefit1')">Exceeds Normal Brain Function</div>
-        <div class="benefit-info" id="benefit1">Rewires and revives sophisticated processes in the brain.</div>
+    <div class="content-card">
+        <h2>Honey Benefits</h2>
+        <div class="benefit" onclick="toggleInfo('b1')">Exceeds Brain Function</div>
+        <div class="benefit-info" id="b1">Rewires and revives sophisticated processes in the brain.</div>
         
-        <div class="benefit" onclick="toggleInfo('benefit2')">Stimulates Head Muscles</div>
-        <div class="benefit-info" id="benefit2">Supports chewing and swallowing.</div>
+        <div class="benefit" onclick="toggleInfo('b2')">Stimulates Head Muscles</div>
+        <div class="benefit-info" id="b2">Supports chewing/swallowing to help dormant cells.</div>
         
-        <div class="benefit" onclick="toggleInfo('benefit3')">Enhances Coordination</div>
-        <div class="benefit-info" id="benefit3">Activates the cerebellum movement coordination.</div>
+        <div class="benefit" onclick="toggleInfo('b3')">Enhances Coordination</div>
+        <div class="benefit-info" id="b3">Activates the cerebellum for better movement and posture.</div>
     </div>
 
-    <div class="qr-container">
-        <h2>Support Us on Cash App</h2>
-        <img src="https://api.qrserver.com/v1/create-qr-code/?data=https://cash.app/$YourCashAppID&size=200x200" alt="Cash App QR Code">
+    <div class="content-card" style="text-align: center; border-color: var(--woadie-yellow);">
+        <h2 style="color: var(--woadie-yellow);">Support via Cash App</h2>
+        <img src="https://api.qrserver.com/v1/create-qr-code/?data=https://cash.app/$YourCashAppID&size=200x200" alt="QR" style="border: 3px solid white; border-radius: 10px; margin: 10px 0;">
     </div>
 
-    <div class="contact-form">
-        <h2>Contact Information</h2>
+    <div class="content-card contact-form" style="border-color: white;">
+        <h2>Get Notified</h2>
         <input type="text" id="userName" placeholder="Your Name" required>
         <input type="email" id="userEmail" placeholder="Your Email" required>
         <input type="tel" id="userPhone" placeholder="Your Phone Number" required>
-        <button onclick="submitContactInfo()">Submit</button>
+        <button class="action-btn" onclick="submitContactInfo()" style="margin-top: 10px;">SUBMIT INFO</button>
     </div>
 
-    <main style="display: flex; flex-direction: column; align-items: center;">
-        <div id="product-list" style="display: flex; flex-wrap: wrap; justify-content: center;"></div>
-        <div class="checkout-container">
-            <button onclick="checkout()">Checkout</button>
+    <div class="content-card" style="max-width: 800px; border-color: var(--tt-teal);">
+        <h2>Direct Products</h2>
+        <div class="product-grid" id="product-list"></div>
+        
+        <div style="margin-top: 30px; border-top: 1px solid #333; padding-top: 20px;">
+            <h3>Shopping Cart</h3>
+            <div id="cart">Your cart is empty</div>
+            <div id="total-display" style="display: none;">Total: $0</div>
+            <button class="action-btn" onclick="checkout()" style="background-color: var(--tt-teal); color: black; margin-top: 15px;">CHECKOUT NOW</button>
         </div>
-        <h2>Shopping Cart</h2>
-        <div id="cart" style="color: white; margin-bottom: 50px;"></div>
-    </main>
+    </div>
 
-    <footer>
-        <p style="text-align: center; padding: 20px;">
-            <a href="http://woadies_honey.com" target="_blank" style="color: white;">Visit our website</a>
-        </p>
+    <footer style="padding: 40px 0;">
+        <a href="http://woadies_honey.com" target="_blank" style="color: var(--tt-teal); text-decoration: none;">woadies_honey.com</a>
     </footer>
 
     <script>
@@ -284,8 +308,8 @@
                 productDiv.className = 'product';
                 productDiv.innerHTML = `
                     <h3 class="${product.className}">${product.name}</h3>
-                    <p>Price: $${product.price}</p>
-                    <button onclick="addToCart(${product.id})">Add to Cart</button>
+                    <p style="font-size: 1.4em; font-weight: bold;">$${product.price}</p>
+                    <button class="action-btn" style="font-size: 0.8em;" onclick="addToCart(${product.id})">Add to Cart</button>
                 `;
                 productList.appendChild(productDiv);
             });
@@ -293,40 +317,63 @@
 
         function addToCart(productId) {
             const product = products.find(p => p.id === productId);
-            cart.push(product);
+            cart.push({ ...product, cartId: Date.now() + Math.random() });
+            displayCart();
+        }
+
+        function removeFromCart(cartId) {
+            cart = cart.filter(item => item.cartId !== cartId);
             displayCart();
         }
 
         function displayCart() {
             const cartContainer = document.getElementById('cart');
-            cartContainer.innerHTML = '';
-            cart.forEach(item => {
-                const cartItem = document.createElement('div');
-                cartItem.innerHTML = `${item.name} - $${item.price}`;
-                cartContainer.appendChild(cartItem);
-            });
+            const totalDisplay = document.getElementById('total-display');
+            
+            if (cart.length === 0) {
+                cartContainer.innerHTML = 'Your cart is empty';
+                totalDisplay.style.display = 'none';
+                return;
+            }
+
+            cartContainer.innerHTML = cart.map(item => `
+                <div class="cart-item">
+                    <span>📍 ${item.name} - $${item.price}</span>
+                    <button class="remove-btn" onclick="removeFromCart(${item.cartId})">×</button>
+                </div>
+            `).join('');
+
+            // Calculate Total
+            const total = cart.reduce((sum, item) => sum + item.price, 0);
+            totalDisplay.innerHTML = `Total: $${total}`;
+            totalDisplay.style.display = 'block';
         }
 
-        function toggleInfo(benefitId) {
-            const info = document.getElementById(benefitId);
-            info.style.display = info.style.display === 'none' || info.style.display === '' ? 'block' : 'none';
+        function toggleInfo(id) {
+            const el = document.getElementById(id);
+            el.style.display = (el.style.display === 'block') ? 'none' : 'block';
         }
 
         function checkout() {
-            if (cart.length === 0) {
-                alert('Your cart is empty.');
-                return;
-            }
-            alert('Thank you for your purchase!');
+            if (cart.length === 0) return alert('Add items first!');
+            const total = cart.reduce((sum, item) => sum + item.price, 0);
+            alert(`Proceeding to checkout. Total: $${total}`);
             cart = [];
             displayCart();
         }
 
         function submitContactInfo() {
             const name = document.getElementById('userName').value;
-            const templateParams = { user_name: name };
-            emailjs.send("service_umowb8n", "template_72qnjzg", templateParams)
-                .then(() => alert('Sent!'), () => alert('Failed!'));
+            const email = document.getElementById('userEmail').value;
+            const phone = document.getElementById('userPhone').value;
+            if(!name || !email) return alert('Please fill in name and email');
+
+            emailjs.send("service_umowb8n", "template_72qnjzg", { 
+                user_name: name, user_email: email, user_phone: phone 
+            }).then(() => {
+                alert('Sent!');
+                document.querySelectorAll('.contact-form input').forEach(i => i.value = '');
+            });
         }
 
         displayProducts();
