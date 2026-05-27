@@ -3,23 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Woadie | Official Store</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <title>Woadie | Honey & Community</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght=700;800&display=swap" rel="stylesheet">
     
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script type="text/javascript">
-        (function () {
-            emailjs.init({
-                publicKey: 'f6AD2aiDRZpO5AYjb',
-            });
-        })();
-    </script>
-
     <style>
         :root {
-            --tt-teal: #00f2ea;
-            --tt-pink: #ff0050;
-            --tt-black: #010101;
+            --woadie-orange: #ff6600;
+            --woadie-black: #010101;
+            --woadie-white: #ffffff;
             --woadie-yellow: #e2e627;
         }
 
@@ -32,7 +23,7 @@
             background-repeat: no-repeat; 
             background-attachment: fixed; 
             min-height: 100vh; 
-            color: white; 
+            color: var(--woadie-white); 
             display: flex;
             flex-direction: column;
             align-items: center; 
@@ -43,8 +34,8 @@
             margin: 30px 0;
             padding: 20px; 
             border-radius: 15px; 
-            border: 4px solid #cc0000; 
-            box-shadow: 0 0 25px rgba(204, 0, 0, 0.4); 
+            border: 4px solid var(--woadie-orange); 
+            box-shadow: 0 0 25px rgba(255, 102, 0, 0.4); 
             background-color: rgba(0, 0, 0, 0.85); 
             width: 90%; 
             max-width: 600px; 
@@ -53,17 +44,47 @@
         h1 {
             color: var(--woadie-yellow);
             font-size: 3.5em; 
-            text-shadow: 3px 3px 0px rgba(255, 0, 80, 0.5); 
+            text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.8); 
             margin: 0; 
             font-family: 'Montserrat', sans-serif;
             letter-spacing: -2px;
+        }
+
+        nav {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            width: 90%;
+            max-width: 600px;
+        }
+        .nav-btn {
+            flex: 1;
+            text-align: center;
+            padding: 12px;
+            background: rgba(0,0,0,0.8);
+            border: 2px solid var(--woadie-orange);
+            color: var(--woadie-orange);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+        .nav-btn.active {
+            background: var(--woadie-orange);
+            color: black;
+        }
+        .nav-btn:hover {
+            background: var(--woadie-orange);
+            color: black;
+            box-shadow: 0 0 15px var(--woadie-orange);
         }
 
         .content-card {
             margin: 15px 0; 
             padding: 25px; 
             background-color: rgba(0, 0, 0, 0.9); 
-            border: 2px solid var(--tt-teal); 
+            border: 2px solid var(--woadie-orange); 
             border-radius: 15px; 
             width: 90%; 
             max-width: 600px;
@@ -73,20 +94,20 @@
 
         .content-card h2 {
             margin-top: 0;
-            color: var(--tt-teal);
+            color: var(--woadie-orange);
             font-family: 'Montserrat', sans-serif;
             text-transform: uppercase;
             font-size: 1.4em;
         }
 
         .tiktok-special {
-            border: 3px solid var(--tt-pink);
-            box-shadow: 0 0 20px rgba(255, 0, 80, 0.2);
+            border: 3px solid var(--woadie-white);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
         }
 
         .tiktok-btn {
-            background-color: var(--tt-pink);
-            color: white !important;
+            background-color: var(--woadie-orange);
+            color: black !important;
             padding: 18px 40px;
             text-decoration: none;
             font-weight: 800;
@@ -99,9 +120,9 @@
         }
 
         @keyframes pulse-glow {
-            0% { box-shadow: 0 0 0 0 rgba(255, 0, 80, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(255, 0, 80, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(255, 0, 80, 0); }
+            0% { box-shadow: 0 0 0 0 rgba(255, 102, 0, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(255, 102, 0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 102, 0, 0); }
         }
 
         .benefit {
@@ -116,28 +137,22 @@
             text-align: center;
         }
         .benefit:hover {
-            background-color: var(--tt-teal);
+            background-color: var(--woadie-orange);
             transform: translateX(5px);
         }
         .benefit-info {
             display: none; 
             padding: 15px;
             background-color: rgba(255, 255, 255, 0.1);
-            border-left: 4px solid var(--tt-teal);
+            border-left: 4px solid var(--woadie-orange);
             margin-bottom: 10px;
             font-style: italic;
+            animation: fadeIn 0.3s ease-in-out;
         }
 
-        .contact-form input {
-            width: 100%; 
-            padding: 15px; 
-            margin: 12px 0; 
-            border: 2px solid #333; 
-            background: #111;
-            color: white; 
-            border-radius: 10px; 
-            box-sizing: border-box;
-            font-size: 1em;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .product-grid {
@@ -161,14 +176,123 @@
         button.action-btn {
             padding: 15px 25px; 
             font-size: 1em; 
-            background-color: #28a745; 
-            color: white; 
+            background-color: var(--woadie-orange); 
+            color: black; 
             border: none; 
             border-radius: 50px; 
             cursor: pointer; 
             font-weight: bold;
             width: 100%;
             transition: 0.3s;
+        }
+        button.action-btn:hover {
+            background-color: #ff8533;
+        }
+
+        /* ANONYMOUS BOARD STYLING */
+        .story-input {
+            width: 100%;
+            height: 120px;
+            padding: 15px;
+            background: #111;
+            color: white;
+            border: 2px solid var(--woadie-white);
+            border-radius: 10px;
+            box-sizing: border-box;
+            font-size: 1em;
+            resize: none;
+            font-family: inherit;
+        }
+        .story-input:focus {
+            outline: none;
+            border-color: var(--woadie-orange);
+        }
+        .board-container {
+            margin-top: 20px;
+            max-height: 400px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding-right: 5px;
+        }
+        .anonymous-post {
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid var(--woadie-orange);
+            padding: 15px;
+            border-radius: 8px;
+            position: relative;
+        }
+        .anonymous-tag {
+            font-size: 0.8em;
+            color: var(--woadie-orange);
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        /* MARKET NEWSWIRE STYLING */
+        .newswire-container {
+            max-height: 250px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 15px;
+            padding-right: 5px;
+        }
+        .news-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid #222;
+            padding: 12px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .news-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75em;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .ticker-tag {
+            background: var(--woadie-yellow);
+            color: black;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 800;
+        }
+        .ticker-premium {
+            background: #2ecc71;
+            color: black;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 800;
+        }
+        .news-time {
+            color: #777;
+        }
+        .news-title {
+            font-weight: bold;
+            color: #fff;
+            font-size: 0.95em;
+        }
+        .news-desc {
+            font-size: 0.85em;
+            color: #aaa;
+            line-height: 1.3;
+        }
+
+        /* TRADINGVIEW GRAPH CONTAINER */
+        .tradingview-widget-container {
+            width: 100%;
+            height: 400px;
+            margin-top: 15px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #333;
         }
 
         /* CART ITEM STYLING */
@@ -180,10 +304,10 @@
             padding: 10px 15px;
             margin: 8px 0;
             border-radius: 8px;
-            border-left: 3px solid var(--tt-teal);
+            border-left: 3px solid var(--woadie-orange);
         }
         .remove-btn {
-            background-color: var(--tt-pink);
+            background-color: #cc0000;
             color: white;
             border: none;
             border-radius: 50%;
@@ -194,24 +318,17 @@
             font-size: 14px;
             line-height: 24px;
             text-align: center;
-            transition: 0.2s;
-        }
-        .remove-btn:hover {
-            transform: scale(1.2);
-            background-color: #ff4d88;
         }
 
-        /* TOTAL DISPLAY STYLING */
         #total-display {
             margin-top: 15px;
             padding: 10px;
             font-size: 1.5em;
             font-weight: 800;
-            color: var(--tt-teal);
+            color: var(--woadie-orange);
             border-top: 1px solid #333;
             text-align: right;
             font-family: 'Montserrat', sans-serif;
-            text-shadow: 0 0 10px rgba(0, 242, 234, 0.4);
         }
 
         .video-placeholder {
@@ -226,21 +343,35 @@
             box-sizing: border-box;
         }
     </style>
+    
+    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
 </head>
 <body>
 
     <header>
         <h1>Woadie</h1>
     </header>
+
+    <nav>
+        <a href="honey-community.html" class="nav-btn active">Honey & Community</a>
+    </nav>
     
-    <div class="content-card">
-        <h2>About Woadie</h2>
-        <p>Seeking insights and guidance on recovery for mental health? You've come to the right place. We provide support tailored for all stages of life.</p>
+    <div class="content-card" style="border-color: var(--woadie-white);">
+        <h2 style="color: var(--woadie-white);">Safe Space Community Board</h2>
+        <p style="font-style: italic; color: #aaa; margin-bottom: 15px;">
+            Share your struggles, what you are currently working on, or your mental health recovery journey. Anything submitted here is completely anonymous for everyone to read worldwide.
+        </p>
+        
+        <textarea id="storyInput" class="story-input" placeholder="Type your reflections or thoughts here..."></textarea>
+        <button class="action-btn" id="postBtn" style="margin-top: 10px;">POST ANONYMOUSLY</button>
+        
+        <div class="board-container" id="boardContainer">
+            </div>
     </div>
 
     <div class="content-card tiktok-special">
-        <h2 style="color: white;">Official TikTok Shop</h2>
-        <p style="color: var(--tt-teal); font-weight: bold;">Join the movement @anime108310</p>
+        <h2 style="color: var(--woadie-white);">Official TikTok Shop</h2>
+        <p style="color: var(--woadie-orange); font-weight: bold;">Join the movement @anime108310</p>
         <a href="https://www.tiktok.com/@anime108310?lang=en" target="_blank" class="tiktok-btn">
             🛒 VISIT MY TIKTOK SHOP
         </a>
@@ -249,6 +380,22 @@
     <div class="video-placeholder">
         <h2 style="font-family: 'Montserrat'; color: var(--woadie-yellow);">Watch Our Mission</h2>
         <iframe width="100%" height="315" src="https://www.youtube.com/embed/2hNcyxYL-Bs" frameborder="0" style="border-radius: 10px;" allowfullscreen></iframe>
+    </div>
+
+    <div class="content-card" style="border-color: var(--woadie-yellow);">
+        <h2 style="color: var(--woadie-yellow);">Woadie Alpha Newswire</h2>
+        <p style="font-style: italic; color: #aaa; margin-bottom: 5px; font-size: 0.85em;">
+            Tracking premium option targets, value plays, and critical tech movements under $30. Updates automatically.
+        </p>
+        <div class="newswire-container" id="newswireContainer">
+            </div>
+
+        <div style="margin-top: 25px; border-top: 1px solid #222; padding-top: 15px;">
+            <h3 style="font-family: 'Montserrat'; font-size: 1.1em; color: white; margin-bottom: 10px;">📊 LIVE MARKET TERMINAL</h3>
+            <div class="tradingview-widget-container">
+                <div id="tradingview_chart"></div>
+            </div>
+        </div>
     </div>
 
     <div class="content-card">
@@ -263,20 +410,7 @@
         <div class="benefit-info" id="b3">Activates the cerebellum for better movement and posture.</div>
     </div>
 
-    <div class="content-card" style="text-align: center; border-color: var(--woadie-yellow);">
-        <h2 style="color: var(--woadie-yellow);">Support via Cash App</h2>
-        <img src="https://api.qrserver.com/v1/create-qr-code/?data=https://cash.app/$YourCashAppID&size=200x200" alt="QR" style="border: 3px solid white; border-radius: 10px; margin: 10px 0;">
-    </div>
-
-    <div class="content-card contact-form" style="border-color: white;">
-        <h2>Get Notified</h2>
-        <input type="text" id="userName" placeholder="Your Name" required>
-        <input type="email" id="userEmail" placeholder="Your Email" required>
-        <input type="tel" id="userPhone" placeholder="Your Phone Number" required>
-        <button class="action-btn" onclick="submitContactInfo()" style="margin-top: 10px;">SUBMIT INFO</button>
-    </div>
-
-    <div class="content-card" style="max-width: 800px; border-color: var(--tt-teal);">
+    <div class="content-card" style="max-width: 800px; border-color: var(--woadie-orange);">
         <h2>Direct Products</h2>
         <div class="product-grid" id="product-list"></div>
         
@@ -284,99 +418,111 @@
             <h3>Shopping Cart</h3>
             <div id="cart">Your cart is empty</div>
             <div id="total-display" style="display: none;">Total: $0</div>
-            <button class="action-btn" onclick="checkout()" style="background-color: var(--tt-teal); color: black; margin-top: 15px;">CHECKOUT NOW</button>
+            <button class="action-btn" onclick="checkout()" style="background-color: var(--woadie-white); color: black; margin-top: 15px;">CHECKOUT NOW</button>
         </div>
     </div>
 
+    <div class="content-card" style="text-align: center; border-color: var(--woadie-yellow);">
+        <h2 style="color: var(--woadie-yellow);">Support via Cash App</h2>
+        <img src="https://api.qrserver.com/v1/create-qr-code/?data=https://cash.app/$YourCashAppID&size=200x200" alt="QR" style="border: 3px solid white; border-radius: 10px; margin: 10px 0;">
+    </div>
+
     <footer style="padding: 40px 0;">
-        <a href="http://woadies_honey.com" target="_blank" style="color: var(--tt-teal); text-decoration: none;">woadies_honey.com</a>
+        <a href="http://woadies_honey.com" target="_blank" style="color: var(--woadie-orange); text-decoration: none;">woadies_honey.com</a>
     </footer>
 
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getFirestore, collection, addDoc, query, orderBy, onSnapshot, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+        // ⚠️ PASTE YOUR FIREBASE CONFIG HERE:
+        const firebaseConfig = {
+            apiKey: "YOUR_API_KEY",
+            authDomain: "YOUR_AUTH_DOMAIN",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_STORAGE_BUCKET",
+            messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+            appId: "YOUR_APP_ID"
+        };
+
+        // Initialize Firebase & Firestore safely
+        try {
+            const app = initializeApp(firebaseConfig);
+            const db = getFirestore(app);
+            const postsCollection = collection(db, "posts");
+
+            // --- REALTIME LIVE STREAM FROM FIREBASE ---
+            const q = query(postsCollection, orderBy("createdAt", "desc"));
+            onSnapshot(q, (snapshot) => {
+                const container = document.getElementById('boardContainer');
+                
+                if (snapshot.empty) {
+                    container.innerHTML = `
+                        <div class="anonymous-post">
+                            <span class="anonymous-tag">👤 Anonymous Member</span>
+                            <p style="margin: 5px 0 0 0; color: #ddd; line-height: 1.4;">Working hard on keeping my mental space clear and building up my personal portfolio projects daily. One step at a time.</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                container.innerHTML = snapshot.docs.map(doc => {
+                    const data = doc.data();
+                    return `
+                        <div class="anonymous-post">
+                            <span class="anonymous-tag">👤 Anonymous Member</span>
+                            <p style="margin: 5px 0 0 0; color: #ddd; line-height: 1.4;">${data.text}</p>
+                        </div>
+                    `;
+                }).join('');
+            });
+
+            // --- SUBMIT POST LIVE TO GLOBAL DATABASE ---
+            document.getElementById('postBtn').addEventListener('click', async () => {
+                const input = document.getElementById('storyInput');
+                const text = input.value.trim();
+                
+                if (!text) return alert('Please type something out before posting.');
+                
+                try {
+                    await addDoc(postsCollection, {
+                        text: text,
+                        createdAt: serverTimestamp()
+                    });
+                    input.value = '';
+                } catch (error) {
+                    console.error("Error adding post: ", error);
+                    alert("Something went wrong posting. Ensure your database rules are published.");
+                }
+            });
+        } catch (e) {
+            console.warn("Firebase not configured yet. Using default board visualization.");
+            document.getElementById('boardContainer').innerHTML = `
+                <div class="anonymous-post">
+                    <span class="anonymous-tag">👤 Anonymous Member</span>
+                    <p style="margin: 5px 0 0 0; color: #ddd; line-height: 1.4;">Working hard on keeping my mental space clear and building up my personal portfolio projects daily. One step at a time.</p>
+                </div>
+            `;
+        }
+    </script>
+
     <script>
-        const products = [
-            { id: 1, name: "Original Smart Honey", price: 50, className: 'original-product' },
-            { id: 2, name: "Potent Smart Honey", price: 80, className: 'green-product' },
-            { id: 3, name: "Golden Honey", price: 200, className: 'green-product' }
+        // -- MARKET NEWSWIRE SIMULATED DATA DECK --
+        const newsData = [
+            { ticker: "U", type: "INCOME PLAY", title: "Unity Option Premium Evaluation", desc: "Sell-to-open implied volatility remains elevated on near-term out-of-the-money calls. Prime setup for technical portfolio income generation.", time: "Just Now" },
+            { ticker: "SOFI", type: "PREMIUM VALUE", title: "Banking Infrastructure Growth", desc: "Sofi holds robust structural positioning beneath the $15 macro floor. High asset liquid premium growth engine.", time: "12m ago" },
+            { ticker: "U", type: "TECH FOCUS", title: "Engine Optimization Upgrades Roll Out", desc: "Unity implementation of next-gen runtime updates triggers renewed developer tracking. Monitoring consolidation patterns close to support levels.", time: "42m ago" },
+            { ticker: "PLTR", type: "MARKET CAP", title: "Institutional Scaling Momentum", desc: "Sustained volume inflow confirms deep data infrastructure integration across sector leaders. Bullish hold validation.", time: "2h ago" },
+            { ticker: "AAL", type: "VOLUME PLAY", title: "Travel Metric Adjustments", desc: "Commercial logistical infrastructure indicators highlight consistent summer scale throughput. Immediate value baseline tracking stable.", time: "3h ago" }
         ];
 
-        let cart = [];
-
-        function displayProducts() {
-            const productList = document.getElementById('product-list');
-            products.forEach(product => {
-                const productDiv = document.createElement('div');
-                productDiv.className = 'product';
-                productDiv.innerHTML = `
-                    <h3 class="${product.className}">${product.name}</h3>
-                    <p style="font-size: 1.4em; font-weight: bold;">$${product.price}</p>
-                    <button class="action-btn" style="font-size: 0.8em;" onclick="addToCart(${product.id})">Add to Cart</button>
-                `;
-                productList.appendChild(productDiv);
-            });
-        }
-
-        function addToCart(productId) {
-            const product = products.find(p => p.id === productId);
-            cart.push({ ...product, cartId: Date.now() + Math.random() });
-            displayCart();
-        }
-
-        function removeFromCart(cartId) {
-            cart = cart.filter(item => item.cartId !== cartId);
-            displayCart();
-        }
-
-        function displayCart() {
-            const cartContainer = document.getElementById('cart');
-            const totalDisplay = document.getElementById('total-display');
-            
-            if (cart.length === 0) {
-                cartContainer.innerHTML = 'Your cart is empty';
-                totalDisplay.style.display = 'none';
-                return;
-            }
-
-            cartContainer.innerHTML = cart.map(item => `
-                <div class="cart-item">
-                    <span>📍 ${item.name} - $${item.price}</span>
-                    <button class="remove-btn" onclick="removeFromCart(${item.cartId})">×</button>
-                </div>
-            `).join('');
-
-            // Calculate Total
-            const total = cart.reduce((sum, item) => sum + item.price, 0);
-            totalDisplay.innerHTML = `Total: $${total}`;
-            totalDisplay.style.display = 'block';
-        }
-
-        function toggleInfo(id) {
-            const el = document.getElementById(id);
-            el.style.display = (el.style.display === 'block') ? 'none' : 'block';
-        }
-
-        function checkout() {
-            if (cart.length === 0) return alert('Add items first!');
-            const total = cart.reduce((sum, item) => sum + item.price, 0);
-            alert(`Proceeding to checkout. Total: $${total}`);
-            cart = [];
-            displayCart();
-        }
-
-        function submitContactInfo() {
-            const name = document.getElementById('userName').value;
-            const email = document.getElementById('userEmail').value;
-            const phone = document.getElementById('userPhone').value;
-            if(!name || !email) return alert('Please fill in name and email');
-
-            emailjs.send("service_umowb8n", "template_72qnjzg", { 
-                user_name: name, user_email: email, user_phone: phone 
-            }).then(() => {
-                alert('Sent!');
-                document.querySelectorAll('.contact-form input').forEach(i => i.value = '');
-            });
-        }
-
-        displayProducts();
-    </script>
-</body>
-</html>
+        function loadNewswire() {
+            const container = document.getElementById('newswireContainer');
+            if (container) {
+                container.innerHTML = newsData.map(item => `
+                    <div class="news-item">
+                        <div class="news-meta">
+                            <span class="ticker-tag">$${item.ticker}</span>
+                            <span class="ticker-premium">${item.type}</span>
+                            <span class="news-time">${item.time}</span>
+         
