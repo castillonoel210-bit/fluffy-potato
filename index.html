@@ -525,4 +525,117 @@
                             <span class="ticker-tag">$${item.ticker}</span>
                             <span class="ticker-premium">${item.type}</span>
                             <span class="news-time">${item.time}</span>
-         
+                        </div>
+                        <div class="news-title">${item.title}</div>
+                        <div class="news-desc">${item.desc}</div>
+                    </div>
+                `).join('');
+            }
+        }
+
+        // -- RENDER TRADINGVIEW WIDGET --
+        function initTradingView() {
+            if (typeof TradingView !== 'undefined') {
+                new TradingView.widget({
+                    "width": "100%",
+                    "height": 400,
+                    "symbol": "NYSE:U",
+                    "interval": "D",
+                    "timezone": "Etc/UTC",
+                    "theme": "dark",
+                    "style": "1",
+                    "locale": "en",
+                    "toolbar_bg": "#f1f3f6",
+                    "enable_publishing": false,
+                    "hide_side_toolbar": true,
+                    "allow_symbol_change": true,
+                    "container_id": "tradingview_chart"
+                });
+            }
+        }
+
+        // -- PRODUCTS MANAGEMENT --
+        const products = [
+            { id: 1, name: "Original Smart Honey", price: 50, className: 'original-product' },
+            { id: 2, name: "Potent Smart Honey", price: 80, className: 'green-product' },
+            { id: 3, name: "Golden Honey", price: 200, className: 'green-product' }
+        ];
+
+        let cart = [];
+
+        function displayProducts() {
+            const productList = document.getElementById('product-list');
+            if (productList) {
+                productList.innerHTML = ''; // Clear previous fields
+                products.forEach(product => {
+                    const productDiv = document.createElement('div');
+                    productDiv.className = 'product';
+                    productDiv.innerHTML = `
+                        <h3 class="${product.className}">${product.name}</h3>
+                        <p style="font-size: 1.4em; font-weight: bold;">$${product.price}</p>
+                        <button class="action-btn" style="font-size: 0.8em;" onclick="addToCart(${product.id})">Add to Cart</button>
+                    `;
+                    productList.appendChild(productDiv);
+                });
+            }
+        }
+
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            cart.push({ ...product, cartId: Date.now() + Math.random() });
+            displayCart();
+        }
+
+        function removeFromCart(cartId) {
+            cart = cart.filter(item => item.cartId !== cartId);
+            displayCart();
+        }
+
+        function displayCart() {
+            const cartContainer = document.getElementById('cart');
+            const totalDisplay = document.getElementById('total-display');
+            
+            if (cart.length === 0) {
+                cartContainer.innerHTML = 'Your cart is empty';
+                totalDisplay.style.display = 'none';
+                return;
+            }
+
+            cartContainer.innerHTML = cart.map(item => `
+                <div class="cart-item">
+                    <span>📍 ${item.name} - $${item.price}</span>
+                    <button class="remove-btn" onclick="removeFromCart(${item.cartId})">×</button>
+                </div>
+            `).join('');
+
+            const total = cart.reduce((sum, item) => sum + item.price, 0);
+            totalDisplay.innerHTML = `Total: $${total}`;
+            totalDisplay.style.display = 'block';
+        }
+
+        function toggleInfo(id) {
+            const el = document.getElementById(id);
+            if (el.style.display === "none" || el.style.display === "") {
+                el.style.display = "block";
+            } else {
+                el.style.display = "none";
+            }
+        }
+
+        function checkout() {
+            if (cart.length === 0) return alert('Add items first!');
+            const total = cart.reduce((sum, item) => sum + item.price, 0);
+            alert(`Proceeding to checkout. Total: $${total}`);
+            cart = [];
+            displayCart();
+        }
+
+        // Run setup functions on page load sequence
+        window.addEventListener('DOMContentLoaded', () => {
+            displayProducts();
+            loadNewswire();
+            initTradingView();
+        });
+    </script>
+</body>
+</html>
