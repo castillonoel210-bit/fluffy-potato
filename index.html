@@ -365,8 +365,7 @@
         <textarea id="storyInput" class="story-input" placeholder="Type your reflections or thoughts here..."></textarea>
         <button class="action-btn" id="postBtn" style="margin-top: 10px;">POST ANONYMOUSLY</button>
         
-        <div class="board-container" id="boardContainer">
-            </div>
+        <div class="board-container" id="boardContainer"></div>
     </div>
 
     <div class="content-card tiktok-special">
@@ -387,8 +386,7 @@
         <p style="font-style: italic; color: #aaa; margin-bottom: 5px; font-size: 0.85em;">
             Tracking premium option targets, value plays, and critical tech movements under $30. Updates automatically.
         </p>
-        <div class="newswire-container" id="newswireContainer">
-            </div>
+        <div class="newswire-container" id="newswireContainer"></div>
 
         <div style="margin-top: 25px; border-top: 1px solid #222; padding-top: 15px;">
             <h3 style="font-family: 'Montserrat'; font-size: 1.1em; color: white; margin-bottom: 10px;">📊 LIVE MARKET TERMINAL</h3>
@@ -431,83 +429,73 @@
         <a href="http://woadies_honey.com" target="_blank" style="color: var(--woadie-orange); text-decoration: none;">woadies_honey.com</a>
     </footer>
 
+    <!-- ✅ FIREBASE: Your real config + live anonymous board -->
     <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-        import { getFirestore, collection, addDoc, query, orderBy, onSnapshot, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-analytics.js";
+        import { getFirestore, collection, addDoc, query, orderBy, onSnapshot, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
 
-        // ⚠️ PASTE YOUR FIREBASE CONFIG HERE:
         const firebaseConfig = {
-            apiKey: "YOUR_API_KEY",
-            authDomain: "YOUR_AUTH_DOMAIN",
-            projectId: "YOUR_PROJECT_ID",
-            storageBucket: "YOUR_STORAGE_BUCKET",
-            messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-            appId: "YOUR_APP_ID"
+            apiKey: "AIzaSyAvjab3z3_GTsI5rJAdmvDx-LVu9jYukSc",
+            authDomain: "woadie-community-board-e2bf2.firebaseapp.com",
+            projectId: "woadie-community-board-e2bf2",
+            storageBucket: "woadie-community-board-e2bf2.firebasestorage.app",
+            messagingSenderId: "1092879614127",
+            appId: "1:1092879614127:web:a18defd3791d6fa9e8145a",
+            measurementId: "G-1D6RVP2KEW"
         };
 
-        // Initialize Firebase & Firestore safely
-        try {
-            const app = initializeApp(firebaseConfig);
-            const db = getFirestore(app);
-            const postsCollection = collection(db, "posts");
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const db = getFirestore(app);
+        const postsCollection = collection(db, "posts");
 
-            // --- REALTIME LIVE STREAM FROM FIREBASE ---
-            const q = query(postsCollection, orderBy("createdAt", "desc"));
-            onSnapshot(q, (snapshot) => {
-                const container = document.getElementById('boardContainer');
-                
-                if (snapshot.empty) {
-                    container.innerHTML = `
-                        <div class="anonymous-post">
-                            <span class="anonymous-tag">👤 Anonymous Member</span>
-                            <p style="margin: 5px 0 0 0; color: #ddd; line-height: 1.4;">Working hard on keeping my mental space clear and building up my personal portfolio projects daily. One step at a time.</p>
-                        </div>
-                    `;
-                    return;
-                }
+        // --- REALTIME LIVE STREAM ---
+        const q = query(postsCollection, orderBy("createdAt", "desc"));
+        onSnapshot(q, (snapshot) => {
+            const container = document.getElementById('boardContainer');
 
-                container.innerHTML = snapshot.docs.map(doc => {
-                    const data = doc.data();
-                    return `
-                        <div class="anonymous-post">
-                            <span class="anonymous-tag">👤 Anonymous Member</span>
-                            <p style="margin: 5px 0 0 0; color: #ddd; line-height: 1.4;">${data.text}</p>
-                        </div>
-                    `;
-                }).join('');
-            });
+            if (snapshot.empty) {
+                container.innerHTML = `
+                    <div class="anonymous-post">
+                        <span class="anonymous-tag">👤 Anonymous Member</span>
+                        <p style="margin: 5px 0 0 0; color: #ddd; line-height: 1.4;">Working hard on keeping my mental space clear and building up my personal portfolio projects daily. One step at a time.</p>
+                    </div>`;
+                return;
+            }
 
-            // --- SUBMIT POST LIVE TO GLOBAL DATABASE ---
-            document.getElementById('postBtn').addEventListener('click', async () => {
-                const input = document.getElementById('storyInput');
-                const text = input.value.trim();
-                
-                if (!text) return alert('Please type something out before posting.');
-                
-                try {
-                    await addDoc(postsCollection, {
-                        text: text,
-                        createdAt: serverTimestamp()
-                    });
-                    input.value = '';
-                } catch (error) {
-                    console.error("Error adding post: ", error);
-                    alert("Something went wrong posting. Ensure your database rules are published.");
-                }
-            });
-        } catch (e) {
-            console.warn("Firebase not configured yet. Using default board visualization.");
-            document.getElementById('boardContainer').innerHTML = `
-                <div class="anonymous-post">
-                    <span class="anonymous-tag">👤 Anonymous Member</span>
-                    <p style="margin: 5px 0 0 0; color: #ddd; line-height: 1.4;">Working hard on keeping my mental space clear and building up my personal portfolio projects daily. One step at a time.</p>
-                </div>
-            `;
-        }
+            container.innerHTML = snapshot.docs.map(doc => {
+                const data = doc.data();
+                return `
+                    <div class="anonymous-post">
+                        <span class="anonymous-tag">👤 Anonymous Member</span>
+                        <p style="margin: 5px 0 0 0; color: #ddd; line-height: 1.4;">${data.text}</p>
+                    </div>`;
+            }).join('');
+        });
+
+        // --- SUBMIT POST ---
+        document.getElementById('postBtn').addEventListener('click', async () => {
+            const input = document.getElementById('storyInput');
+            const text = input.value.trim();
+
+            if (!text) return alert('Please type something out before posting.');
+
+            try {
+                await addDoc(postsCollection, {
+                    text: text,
+                    createdAt: serverTimestamp()
+                });
+                input.value = '';
+            } catch (error) {
+                console.error("Error adding post:", error);
+                alert("Something went wrong. Make sure your Firestore rules are published.");
+            }
+        });
     </script>
 
     <script>
-        // -- MARKET NEWSWIRE SIMULATED DATA DECK --
+        // -- MARKET NEWSWIRE --
         const newsData = [
             { ticker: "U", type: "INCOME PLAY", title: "Unity Option Premium Evaluation", desc: "Sell-to-open implied volatility remains elevated on near-term out-of-the-money calls. Prime setup for technical portfolio income generation.", time: "Just Now" },
             { ticker: "SOFI", type: "PREMIUM VALUE", title: "Banking Infrastructure Growth", desc: "Sofi holds robust structural positioning beneath the $15 macro floor. High asset liquid premium growth engine.", time: "12m ago" },
@@ -528,12 +516,11 @@
                         </div>
                         <div class="news-title">${item.title}</div>
                         <div class="news-desc">${item.desc}</div>
-                    </div>
-                `).join('');
+                    </div>`).join('');
             }
         }
 
-        // -- RENDER TRADINGVIEW WIDGET --
+        // -- TRADINGVIEW --
         function initTradingView() {
             if (typeof TradingView !== 'undefined') {
                 new TradingView.widget({
@@ -554,7 +541,7 @@
             }
         }
 
-        // -- PRODUCTS MANAGEMENT --
+        // -- PRODUCTS --
         const products = [
             { id: 1, name: "Original Smart Honey", price: 50, className: 'original-product' },
             { id: 2, name: "Potent Smart Honey", price: 80, className: 'green-product' },
@@ -566,7 +553,7 @@
         function displayProducts() {
             const productList = document.getElementById('product-list');
             if (productList) {
-                productList.innerHTML = ''; // Clear previous fields
+                productList.innerHTML = '';
                 products.forEach(product => {
                     const productDiv = document.createElement('div');
                     productDiv.className = 'product';
@@ -594,7 +581,7 @@
         function displayCart() {
             const cartContainer = document.getElementById('cart');
             const totalDisplay = document.getElementById('total-display');
-            
+
             if (cart.length === 0) {
                 cartContainer.innerHTML = 'Your cart is empty';
                 totalDisplay.style.display = 'none';
@@ -630,7 +617,6 @@
             displayCart();
         }
 
-        // Run setup functions on page load sequence
         window.addEventListener('DOMContentLoaded', () => {
             displayProducts();
             loadNewswire();
