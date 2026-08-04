@@ -1,1 +1,662 @@
-<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Woadie | Honey & Community</title> <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght=700;800&display=swap" rel="stylesheet"> <style> :root { --woadie-orange: #ff6600; --woadie-black: #010101; --woadie-white: #ffffff; --woadie-yellow: #e2e627; } body { font-family: 'Arial', sans-serif; margin: 0; background-image: url('https://i.postimg.cc/BbRfFK8w/Picsart-25-08-21-18-26-14-695.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: fixed; min-height: 100vh; color: var(--woadie-white); display: flex; flex-direction: column; align-items: center; } header { text-align: center; margin: 30px 0; padding: 20px; border-radius: 15px; border: 4px solid var(--woadie-orange); box-shadow: 0 0 25px rgba(255, 102, 0, 0.4); background-color: rgba(0, 0, 0, 0.85); width: 90%; max-width: 600px; } h1 { color: var(--woadie-yellow); font-size: 3.5em; text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.8); margin: 0; font-family: 'Montserrat', sans-serif; letter-spacing: -2px; } nav { display: flex; gap: 15px; margin-bottom: 20px; width: 90%; max-width: 600px; } .nav-btn { flex: 1; text-align: center; padding: 12px; background: rgba(0,0,0,0.8); border: 2px solid var(--woadie-orange); color: var(--woadie-orange); text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 700; border-radius: 10px; transition: 0.3s; } .nav-btn.active { background: var(--woadie-orange); color: black; } .nav-btn:hover { background: var(--woadie-orange); color: black; box-shadow: 0 0 15px var(--woadie-orange); } .content-card { margin: 15px 0; padding: 25px; background-color: rgba(0, 0, 0, 0.9); border: 2px solid var(--woadie-orange); border-radius: 15px; width: 90%; max-width: 600px; box-sizing: border-box; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); } .content-card h2 { margin-top: 0; color: var(--woadie-orange); font-family: 'Montserrat', sans-serif; text-transform: uppercase; font-size: 1.4em; } .tiktok-special { border: 3px solid var(--woadie-white); box-shadow: 0 0 20px rgba(255, 255, 255, 0.2); } .tiktok-btn { background-color: var(--woadie-orange); color: black !important; padding: 18px 40px; text-decoration: none; font-weight: 800; border-radius: 50px; display: inline-block; margin-top: 15px; font-family: 'Montserrat', sans-serif; transition: 0.3s; animation: pulse-glow 2s infinite; } @keyframes pulse-glow { 0% { box-shadow: 0 0 0 0 rgba(255, 102, 0, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(255, 102, 0, 0); } 100% { box-shadow: 0 0 0 0 rgba(255, 102, 0, 0); } } .benefit { cursor: pointer; padding: 12px; margin: 10px 0; background-color: var(--woadie-yellow); color: black; border-radius: 8px; font-weight: bold; transition: 0.3s; text-align: center; } .benefit:hover { background-color: var(--woadie-orange); transform: translateX(5px); } .benefit-info { display: none; padding: 15px; background-color: rgba(255, 255, 255, 0.1); border-left: 4px solid var(--woadie-orange); margin-bottom: 10px; font-style: italic; animation: fadeIn 0.3s ease-in-out; } @keyframes fadeIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } } .product-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 20px; } .product { border: 2px solid #333; padding: 20px; width: 240px; text-align: center; background-color: rgba(0,0,0,0.8); border-radius: 15px; } .original-product { color: gold; } .green-product { color: #2ecc71; } .product img { width: 100%; border-radius: 10px; margin-bottom: 10px; } button.action-btn { padding: 15px 25px; font-size: 1em; background-color: var(--woadie-orange); color: black; border: none; border-radius: 50px; cursor: pointer; font-weight: bold; width: 100%; transition: 0.3s; } button.action-btn:hover { background-color: #ff8533; } a.action-btn { padding: 15px 25px; font-size: 1em; background-color: var(--woadie-orange); color: black; border: none; border-radius: 50px; cursor: pointer; font-weight: bold; width: 100%; transition: 0.3s; text-decoration: none; display: block; box-sizing: border-box; } a.action-btn:hover { background-color: #ff8533; } /* ANONYMOUS BOARD STYLING */ .story-input { width: 100%; height: 120px; padding: 15px; background: #111; color: white; border: 2px solid var(--woadie-white); border-radius: 10px; box-sizing: border-box; font-size: 1em; resize: none; font-family: inherit; } .story-input:focus { outline: none; border-color: var(--woadie-orange); } .board-container { margin-top: 20px; max-height: 400px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; padding-right: 5px; } .anonymous-post { background: rgba(255, 255, 255, 0.05); border-left: 4px solid var(--woadie-orange); padding: 15px; border-radius: 8px; position: relative; } .anonymous-tag { font-size: 0.8em; color: var(--woadie-orange); font-family: 'Montserrat', sans-serif; text-transform: uppercase; margin-bottom: 5px; display: block; } /* MARKET NEWSWIRE STYLING */ .newswire-container { max-height: 250px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; margin-top: 15px; padding-right: 5px; } .news-item { background: rgba(255, 255, 255, 0.03); border: 1px solid #222; padding: 12px; border-radius: 8px; display: flex; flex-direction: column; gap: 4px; } .news-meta { display: flex; justify-content: space-between; font-size: 0.75em; font-family: 'Montserrat', sans-serif; } .ticker-tag { background: var(--woadie-yellow); color: black; padding: 2px 6px; border-radius: 4px; font-weight: 800; } .ticker-premium { background: #2ecc71; color: black; padding: 2px 6px; border-radius: 4px; font-weight: 800; } .news-time { color: #777; } .news-title { font-weight: bold; color: #fff; font-size: 0.95em; } .news-desc { font-size: 0.85em; color: #aaa; line-height: 1.3; } /* TRADINGVIEW GRAPH CONTAINER */ .tradingview-widget-container { width: 100%; height: 400px; margin-top: 15px; border-radius: 10px; overflow: hidden; border: 1px solid #333; } /* CART ITEM STYLING */ .cart-item { display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.05); padding: 10px 15px; margin: 8px 0; border-radius: 8px; border-left: 3px solid var(--woadie-orange); } .remove-btn { background-color: #cc0000; color: white; border: none; border-radius: 50%; width: 24px; height: 24px; cursor: pointer; font-weight: bold; font-size: 14px; line-height: 24px; text-align: center; } #total-display { margin-top: 15px; padding: 10px; font-size: 1.5em; font-weight: 800; color: var(--woadie-orange); border-top: 1px solid #333; text-align: right; font-family: 'Montserrat', sans-serif; } .video-placeholder { width: 90%; max-width: 600px; margin: 20px 0; background-color: black; border: 2px solid var(--woadie-yellow); border-radius: 15px; text-align: center; padding: 15px; box-sizing: border-box; } /* RESPONSIVE: PHONES & SMALL SCREENS */ @media (max-width: 480px) { h1 { font-size: 2.2em; letter-spacing: -1px; } header { padding: 15px; margin: 15px 0; } .content-card, .video-placeholder { width: 94%; padding: 18px; } nav { width: 94%; gap: 10px; } .nav-btn { padding: 10px; font-size: 0.9em; } .content-card h2 { font-size: 1.15em; } .product { width: 100%; max-width: 280px; } .tiktok-btn { padding: 14px 24px; font-size: 0.9em; } .tradingview-widget-container { height: 320px; } .video-placeholder iframe { height: 220px; } } /* RESPONSIVE: TABLETS */ @media (min-width: 481px) and (max-width: 768px) { .content-card, .video-placeholder { width: 92%; } } /* RESPONSIVE: LARGER DESKTOP SCREENS */ @media (min-width: 1200px) { .content-card, .video-placeholder, header, nav { max-width: 750px; } } </style> <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script> </head> <body> <header> <h1>Woadie</h1> </header> <nav> <a href="honey-community.html" class="nav-btn active">Honey & Community</a> </nav> <div class="content-card" style="border-color: var(--woadie-white);"> <h2 style="color: var(--woadie-white);">Safe Space Community Board</h2> <p style="font-style: italic; color: #aaa; margin-bottom: 15px;"> Share your struggles, what you are currently working on, or your mental health recovery journey. Anything submitted here is completely anonymous for everyone to read worldwide. </p> <textarea id="storyInput" class="story-input" placeholder="Type your reflections or thoughts here..."></textarea> <button class="action-btn" id="postBtn" style="margin-top: 10px;">POST ANONYMOUSLY</button> <div class="board-container" id="boardContainer"></div> </div> <div class="content-card tiktok-special"> <h2 style="color: var(--woadie-white);">Official TikTok Shop</h2> <p style="color: var(--woadie-orange); font-weight: bold;">Join the movement @anime108310</p> <a href="https://www.tiktok.com/@anime108310?lang=en" target="_blank" class="tiktok-btn"> 🛒 VISIT MY TIKTOK SHOP </a> </div> <div class="video-placeholder"> <h2 style="font-family: 'Montserrat'; color: var(--woadie-yellow);">Helping People Is The Best Mindset</h2> <iframe width="100%" height="315" src="https://www.youtube.com/embed/2hNcyxYL-Bs" frameborder="0" style="border-radius: 10px;" allowfullscreen></iframe> </div> <div class="content-card" style="border-color: var(--woadie-yellow);"> <h2 style="color: var(--woadie-yellow);">Woadie Alpha Newswire</h2> <p style="font-style: italic; color: #aaa; margin-bottom: 5px; font-size: 0.85em;"> Tracking premium option targets, value plays, and critical tech movements under $30. Updates automatically. </p> <div class="newswire-container" id="newswireContainer"></div> <div style="margin-top: 25px; border-top: 1px solid #222; padding-top: 15px;"> <h3 style="font-family: 'Montserrat'; font-size: 1.1em; color: white; margin-bottom: 10px;">📊 LIVE MARKET TERMINAL</h3> <div class="tradingview-widget-container"> <div id="tradingview_chart"></div> </div> </div> </div> <div class="content-card"> <h2>Covered Call Benefits</h2> <div class="benefit" onclick="toggleInfo('b1')">Generates Weekly Income</div> <div class="benefit-info" id="b1">Selling call options against shares you already own creates immediate cash premium, often on a weekly or monthly basis.</div> <div class="benefit" onclick="toggleInfo('b2')">Lowers Your Cost Basis</div> <div class="benefit-info" id="b2">Every premium you collect reduces the effective price you paid for your shares, cushioning downside risk over time.</div> <div class="benefit" onclick="toggleInfo('b3')">Works With Stock You Already Own</div> <div class="benefit-info" id="b3">No extra capital needed — if you own 100+ shares of a stock, you can start selling calls against that position right away.</div> </div> <!-- 📚 BOOK: Direct Stripe checkout, separate from the honey cart --> <div class="content-card" style="max-width: 800px; border-color: var(--woadie-yellow);"> <h2 style="color: var(--woadie-yellow);">The Book</h2> <div class="product-grid" id="book-list"></div> </div> <div class="content-card" style="text-align: center; border-color: var(--woadie-yellow);"> <h2 style="color: var(--woadie-yellow);">Support via Cash App</h2> <img src="https://api.qrserver.com/v1/create-qr-code/?data=https://cash.app/$YourCashAppID&size=200x200" alt="QR" style="border: 3px solid white; border-radius: 10px; margin: 10px 0;"> </div> <footer style="padding: 40px 0;"> <a href="http://woadies_honey.com" target="_blank" style="color: var(--woadie-orange); text-decoration: none;">woadies_honey.com</a> </footer> <!-- ✅ FIREBASE: Your real config + live anonymous board --> <script type="module"> import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js"; import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-analytics.js"; import { getFirestore, collection, addDoc, query, orderBy, onSnapshot, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js"; const firebaseConfig = { apiKey: "AIzaSyAvjab3z3_GTsI5rJAdmvDx-LVu9jYukSc", authDomain: "woadie-community-board-e2bf2.firebaseapp.com", projectId: "woadie-community-board-e2bf2", storageBucket: "woadie-community-board-e2bf2.firebasestorage.app", messagingSenderId: "1092879614127", appId: "1:1092879614127:web:a18defd3791d6fa9e8145a", measurementId: "G-1D6RVP2KEW" }; const app = initializeApp(firebaseConfig); const analytics = getAnalytics(app); const db = getFirestore(app); const postsCollection = collection(db, "posts"); // --- REALTIME LIVE STREAM --- const q = query(postsCollection, orderBy("createdAt", "desc")); onSnapshot(q, (snapshot) => { const container = document.getElementById('boardContainer'); if (snapshot.empty) { container.innerHTML = ` <div class="anonymous-post"> <span class="anonymous-tag">👤 Anonymous Member</span> <p style="margin: 5px 0 0 0; color: #ddd; line-height: 1.4;">Working hard on keeping my mental space clear and building up my personal portfolio projects daily. One step at a time.</p> </div>`; return; } container.innerHTML = snapshot.docs.map(doc => { const data = doc.data(); return ` <div class="anonymous-post"> <span class="anonymous-tag">👤 Anonymous Member</span> <p style="margin: 5px 0 0 0; color: #ddd; line-height: 1.4;">${data.text}</p> </div>`; }).join(''); }); // --- SUBMIT POST --- document.getElementById('postBtn').addEventListener('click', async () => { const input = document.getElementById('storyInput'); const text = input.value.trim(); if (!text) return alert('Please type something out before posting.'); try { await addDoc(postsCollection, { text: text, createdAt: serverTimestamp() }); input.value = ''; } catch (error) { console.error("Error adding post:", error); alert("Something went wrong. Make sure your Firestore rules are published."); } }); </script> <script> // -- MARKET NEWSWIRE -- const newsData = [ { ticker: "U", type: "INCOME PLAY", title: "Unity Option Premium Evaluation", desc: "Sell-to-open implied volatility remains elevated on near-term out-of-the-money calls. Prime setup for technical portfolio income generation.", time: "Just Now" }, { ticker: "SOFI", type: "PREMIUM VALUE", title: "Banking Infrastructure Growth", desc: "Sofi holds robust structural positioning beneath the $15 macro floor. High asset liquid premium growth engine.", time: "12m ago" }, { ticker: "U", type: "TECH FOCUS", title: "Engine Optimization Upgrades Roll Out", desc: "Unity implementation of next-gen runtime updates triggers renewed developer tracking. Monitoring consolidation patterns close to support levels.", time: "42m ago" }, { ticker: "PLTR", type: "MARKET CAP", title: "Institutional Scaling Momentum", desc: "Sustained volume inflow confirms deep data infrastructure integration across sector leaders. Bullish hold validation.", time: "2h ago" }, { ticker: "AAL", type: "VOLUME PLAY", title: "Travel Metric Adjustments", desc: "Commercial logistical infrastructure indicators highlight consistent summer scale throughput. Immediate value baseline tracking stable.", time: "3h ago" } ]; function loadNewswire() { const container = document.getElementById('newswireContainer'); if (container) { container.innerHTML = newsData.map(item => ` <div class="news-item"> <div class="news-meta"> <span class="ticker-tag">$${item.ticker}</span> <span class="ticker-premium">${item.type}</span> <span class="news-time">${item.time}</span> </div> <div class="news-title">${item.title}</div> <div class="news-desc">${item.desc}</div> </div>`).join(''); } } // -- TRADINGVIEW -- function initTradingView() { if (typeof TradingView !== 'undefined') { new TradingView.widget({ "width": "100%", "height": 400, "symbol": "NYSE:U", "interval": "D", "timezone": "Etc/UTC", "theme": "dark", "style": "1", "locale": "en", "toolbar_bg": "#f1f3f6", "enable_publishing": false, "hide_side_toolbar": true, "allow_symbol_change": true, "container_id": "tradingview_chart" }); } } // -- BOOK (direct Stripe checkout, no cart needed) -- // ⚠️ Replace stripeLink with your LIVE Stripe Payment Link once your account is activated. // The current link is a TEST/sandbox link — no real payments will process yet. const books = [ { id: 1, name: "The Dream of an 18-Year-Old in a 26-Year-Old Body", subtitle: "How I Learned To Make Weekly Income With Covered Calls", price: 20, image: "https://i.postimg.cc/9FpXfv0N/1783209569690-2.jpg", stripeLink: "https://buy.stripe.com/test_cNi3cw0cZdchfAhdZT1gs00" } ]; function displayBooks() { const bookList = document.getElementById('book-list'); if (bookList) { bookList.innerHTML = books.map(book => ` <div class="product original-product"> <img src="${book.image}" alt="${book.name}"> <h3 style="font-family: 'Montserrat'; font-size: 1.05em; color: white;">${book.name}</h3> <p style="color:#aaa; font-size:0.8em;">${book.subtitle}</p> <p style="font-size: 1.3em; font-weight: 800; color: var(--woadie-yellow);">$${book.price.toFixed(2)} <span style="font-size:0.55em; color:#aaa; font-weight:400;">+ shipping</span></p> <a href="${book.stripeLink}" target="_blank" class="action-btn">BUY NOW</a> </div> `).join(''); } } function toggleInfo(id) { const el = document.getElementById(id); if (el.style.display === "none" || el.style.display === "") { el.style.display = "block"; } else { el.style.display = "none"; } } window.addEventListener('DOMContentLoaded', () => { displayBooks(); loadNewswire(); initTradingView(); }); </script> </body> </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Woadie | Honey & Community</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght=700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --woadie-orange: #ff6600;
+            --woadie-black: #010101;
+            --woadie-white: #ffffff;
+            --woadie-yellow: #e2e627;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0; 
+            background-image: url('https://i.postimg.cc/BbRfFK8w/Picsart-25-08-21-18-26-14-695.jpg'); 
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat; 
+            background-attachment: fixed; 
+            min-height: 100vh; 
+            color: var(--woadie-white); 
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+        }
+
+        header {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px; 
+            border-radius: 15px; 
+            border: 4px solid var(--woadie-orange); 
+            box-shadow: 0 0 25px rgba(255, 102, 0, 0.4); 
+            background-color: rgba(0, 0, 0, 0.85); 
+            width: 90%; 
+            max-width: 600px; 
+        }
+
+        h1 {
+            color: var(--woadie-yellow);
+            font-size: 3.5em; 
+            text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.8); 
+            margin: 0; 
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: -2px;
+        }
+
+        nav {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            width: 90%;
+            max-width: 600px;
+        }
+        .nav-btn {
+            flex: 1;
+            text-align: center;
+            padding: 12px;
+            background: rgba(0,0,0,0.8);
+            border: 2px solid var(--woadie-orange);
+            color: var(--woadie-orange);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+        .nav-btn.active {
+            background: var(--woadie-orange);
+            color: black;
+        }
+        .nav-btn:hover {
+            background: var(--woadie-orange);
+            color: black;
+            box-shadow: 0 0 15px var(--woadie-orange);
+        }
+
+        .content-card {
+            margin: 15px 0; 
+            padding: 25px; 
+            background-color: rgba(0, 0, 0, 0.9); 
+            border: 2px solid var(--woadie-orange); 
+            border-radius: 15px; 
+            width: 90%; 
+            max-width: 600px;
+            box-sizing: border-box;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .content-card h2 {
+            margin-top: 0;
+            color: var(--woadie-orange);
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            font-size: 1.4em;
+        }
+
+        .tiktok-special {
+            border: 3px solid var(--woadie-white);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+
+        .tiktok-btn {
+            background-color: var(--woadie-orange);
+            color: black !important;
+            padding: 18px 40px;
+            text-decoration: none;
+            font-weight: 800;
+            border-radius: 50px;
+            display: inline-block;
+            margin-top: 15px;
+            font-family: 'Montserrat', sans-serif;
+            transition: 0.3s;
+            animation: pulse-glow 2s infinite;
+        }
+
+        @keyframes pulse-glow {
+            0% { box-shadow: 0 0 0 0 rgba(255, 102, 0, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(255, 102, 0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 102, 0, 0); }
+        }
+
+        .benefit {
+            cursor: pointer;
+            padding: 12px;
+            margin: 10px 0;
+            background-color: var(--woadie-yellow); 
+            color: black;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+            text-align: center;
+        }
+        .benefit:hover {
+            background-color: var(--woadie-orange);
+            transform: translateX(5px);
+        }
+        .benefit-info {
+            display: none; 
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-left: 4px solid var(--woadie-orange);
+            margin-bottom: 10px;
+            font-style: italic;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .product-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .product {
+            border: 2px solid #333;
+            padding: 20px;
+            width: 240px;
+            text-align: center;
+            background-color: rgba(0,0,0,0.8); 
+            border-radius: 15px;
+        }
+        .original-product { color: gold; }
+        .green-product { color: #2ecc71; }
+
+        .product img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        button.action-btn {
+            padding: 15px 25px; 
+            font-size: 1em; 
+            background-color: var(--woadie-orange); 
+            color: black; 
+            border: none; 
+            border-radius: 50px; 
+            cursor: pointer; 
+            font-weight: bold;
+            width: 100%;
+            transition: 0.3s;
+        }
+        button.action-btn:hover {
+            background-color: #ff8533;
+        }
+
+        a.action-btn {
+            padding: 15px 25px;
+            font-size: 1em;
+            background-color: var(--woadie-orange);
+            color: black;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+            transition: 0.3s;
+            text-decoration: none;
+            display: block;
+            box-sizing: border-box;
+        }
+        a.action-btn:hover {
+            background-color: #ff8533;
+        }
+
+        /* ANONYMOUS BOARD STYLING */
+        .story-input {
+            width: 100%;
+            height: 120px;
+            padding: 15px;
+            background: #111;
+            color: white;
+            border: 2px solid var(--woadie-white);
+            border-radius: 10px;
+            box-sizing: border-box;
+            font-size: 1em;
+            resize: none;
+            font-family: inherit;
+        }
+        .story-input:focus {
+            outline: none;
+            border-color: var(--woadie-orange);
+        }
+        .board-container {
+            margin-top: 20px;
+            max-height: 400px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding-right: 5px;
+        }
+        .anonymous-post {
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid var(--woadie-orange);
+            padding: 15px;
+            border-radius: 8px;
+            position: relative;
+        }
+        .anonymous-tag {
+            font-size: 0.8em;
+            color: var(--woadie-orange);
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        /* MARKET NEWSWIRE STYLING */
+        .newswire-container {
+            max-height: 250px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 15px;
+            padding-right: 5px;
+        }
+        .news-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid #222;
+            padding: 12px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .news-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75em;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .ticker-tag {
+            background: var(--woadie-yellow);
+            color: black;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 800;
+        }
+        .ticker-premium {
+            background: #2ecc71;
+            color: black;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 800;
+        }
+        .news-time {
+            color: #777;
+        }
+        .news-title {
+            font-weight: bold;
+            color: #fff;
+            font-size: 0.95em;
+        }
+        .news-desc {
+            font-size: 0.85em;
+            color: #aaa;
+            line-height: 1.3;
+        }
+
+        /* TRADINGVIEW GRAPH CONTAINER */
+        .tradingview-widget-container {
+            width: 100%;
+            height: 400px;
+            margin-top: 15px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #333;
+        }
+
+        /* CART ITEM STYLING */
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255,255,255,0.05);
+            padding: 10px 15px;
+            margin: 8px 0;
+            border-radius: 8px;
+            border-left: 3px solid var(--woadie-orange);
+        }
+        .remove-btn {
+            background-color: #cc0000;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 24px;
+            text-align: center;
+        }
+
+        #total-display {
+            margin-top: 15px;
+            padding: 10px;
+            font-size: 1.5em;
+            font-weight: 800;
+            color: var(--woadie-orange);
+            border-top: 1px solid #333;
+            text-align: right;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .video-placeholder {
+            width: 90%;
+            max-width: 600px; 
+            margin: 20px 0; 
+            background-color: black; 
+            border: 2px solid var(--woadie-yellow); 
+            border-radius: 15px; 
+            text-align: center; 
+            padding: 15px; 
+            box-sizing: border-box;
+        }
+
+        /* RESPONSIVE: PHONES & SMALL SCREENS */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2.2em;
+                letter-spacing: -1px;
+            }
+            header {
+                padding: 15px;
+                margin: 15px 0;
+            }
+            .content-card, .video-placeholder {
+                width: 94%;
+                padding: 18px;
+            }
+            nav {
+                width: 94%;
+                gap: 10px;
+            }
+            .nav-btn {
+                padding: 10px;
+                font-size: 0.9em;
+            }
+            .content-card h2 {
+                font-size: 1.15em;
+            }
+            .product {
+                width: 100%;
+                max-width: 280px;
+            }
+            .tiktok-btn {
+                padding: 14px 24px;
+                font-size: 0.9em;
+            }
+            .tradingview-widget-container {
+                height: 320px;
+            }
+            .video-placeholder iframe {
+                height: 220px;
+            }
+        }
+
+        /* RESPONSIVE: TABLETS */
+        @media (min-width: 481px) and (max-width: 768px) {
+            .content-card, .video-placeholder {
+                width: 92%;
+            }
+        }
+
+        /* RESPONSIVE: LARGER DESKTOP SCREENS */
+        @media (min-width: 1200px) {
+            .content-card, .video-placeholder, header, nav {
+                max-width: 750px;
+            }
+        }
+    </style>
+
+    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+</head>
+<body>
+
+    <header>
+        <h1>Woadie</h1>
+    </header>
+
+    <nav>
+        <a href="honey-community.html" class="nav-btn active">Honey & Community</a>
+    </nav>
+
+    <div class="content-card" style="border-color: var(--woadie-white);">
+        <h2 style="color: var(--woadie-white);">Safe Space Community Board</h2>
+        <p style="font-style: italic; color: #aaa; margin-bottom: 15px;">
+            Share your struggles, what you are currently working on, or your mental health recovery journey. Anything submitted here is completely anonymous for everyone to read worldwide.
+        </p>
+
+        <textarea id="storyInput" class="story-input" placeholder="Type your reflections or thoughts here..."></textarea>
+        <button class="action-btn" id="postBtn" style="margin-top: 10px;">POST ANONYMOUSLY</button>
+
+        <div class="board-container" id="boardContainer"></div>
+    </div>
+
+    <div class="content-card tiktok-special">
+        <h2 style="color: var(--woadie-white);">Official TikTok Shop</h2>
+        <p style="color: var(--woadie-orange); font-weight: bold;">Join the movement @anime108310</p>
+        <a href="https://www.tiktok.com/@anime108310?lang=en" target="_blank" class="tiktok-btn">
+            🛒 VISIT MY TIKTOK SHOP
+        </a>
+    </div>
+
+    <div class="video-placeholder">
+        <h2 style="font-family: 'Montserrat'; color: var(--woadie-yellow);">Helping People Is The Best Mindset</h2>
+        <iframe width="100%" height="315" src="https://www.youtube.com/embed/2hNcyxYL-Bs" frameborder="0" style="border-radius: 10px;" allowfullscreen></iframe>
+    </div>
+
+    <div class="content-card" style="border-color: var(--woadie-yellow);">
+        <h2 style="color: var(--woadie-yellow);">Woadie Alpha Newswire</h2>
+        <p style="font-style: italic; color: #aaa; margin-bottom: 5px; font-size: 0.85em;">
+            Tracking premium option targets, value plays, and critical tech movements under $30. Updates automatically.
+        </p>
+        <div class="newswire-container" id="newswireContainer"></div>
+
+        <div style="margin-top: 25px; border-top: 1px solid #222; padding-top: 15px;">
+            <h3 style="font-family: 'Montserrat'; font-size: 1.1em; color: white; margin-bottom: 10px;">📊 LIVE MARKET TERMINAL</h3>
+            <div class="tradingview-widget-container">
+                <div id="tradingview_chart"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-card">
+        <h2>Covered Call Benefits</h2>
+        <div class="benefit" onclick="toggleInfo('b1')">Generates Weekly Income</div>
+        <div class="benefit-info" id="b1">Selling call options against shares you already own creates immediate cash premium, often on a weekly or monthly basis.</div>
+
+        <div class="benefit" onclick="toggleInfo('b2')">Lowers Your Cost Basis</div>
+        <div class="benefit-info" id="b2">Every premium you collect reduces the effective price you paid for your shares, cushioning downside risk over time.</div>
+
+        <div class="benefit" onclick="toggleInfo('b3')">Works With Stock You Already Own</div>
+        <div class="benefit-info" id="b3">No extra capital needed — if you own 100+ shares of a stock, you can start selling calls against that position right away.</div>
+    </div>
+
+    <!-- 📚 BOOK: Direct Stripe checkout, separate from the honey cart -->
+    <div class="content-card" style="max-width: 800px; border-color: var(--woadie-yellow);">
+        <h2 style="color: var(--woadie-yellow);">The Book</h2>
+        <div class="product-grid" id="book-list"></div>
+    </div>
+
+    <div class="content-card" style="text-align: center; border-color: var(--woadie-yellow);">
+        <h2 style="color: var(--woadie-yellow);">Support via Cash App</h2>
+        <img src="https://api.qrserver.com/v1/create-qr-code/?data=https://cash.app/$YourCashAppID&size=200x200" alt="QR" style="border: 3px solid white; border-radius: 10px; margin: 10px 0;">
+    </div>
+
+    <footer style="padding: 40px 0;">
+        <a href="http://woadies_honey.com" target="_blank" style="color: var(--woadie-orange); text-decoration: none;">woadies_honey.com</a>
+    </footer>
+
+    <!-- ✅ FIREBASE: Your real config + live anonymous board -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-analytics.js";
+        import { getFirestore, collection, addDoc, query, orderBy, onSnapshot, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyAvjab3z3_GTsI5rJAdmvDx-LVu9jYukSc",
+            authDomain: "woadie-community-board-e2bf2.firebaseapp.com",
+            projectId: "woadie-community-board-e2bf2",
+            storageBucket: "woadie-community-board-e2bf2.firebasestorage.app",
+            messagingSenderId: "1092879614127",
+            appId: "1:1092879614127:web:a18defd3791d6fa9e8145a",
+            measurementId: "G-1D6RVP2KEW"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const db = getFirestore(app);
+        const postsCollection = collection(db, "posts");
+
+        /* --- REALTIME LIVE STREAM --- */
+        const q = query(postsCollection, orderBy("createdAt", "desc"));
+        onSnapshot(q, (snapshot) => {
+            const container = document.getElementById('boardContainer');
+
+            if (snapshot.empty) {
+                container.innerHTML = `
+                    <div class="anonymous-post">
+                        <span class="anonymous-tag">👤 Anonymous Member</span>
+                        <p style="margin: 5px 0 0 0; color: #ddd; line-height: 1.4;">Working hard on keeping my mental space clear and building up my personal portfolio projects daily. One step at a time.</p>
+                    </div>`;
+                return;
+            }
+
+            container.innerHTML = snapshot.docs.map(doc => {
+                const data = doc.data();
+                return `
+                    <div class="anonymous-post">
+                        <span class="anonymous-tag">👤 Anonymous Member</span>
+                        <p style="margin: 5px 0 0 0; color: #ddd; line-height: 1.4;">${data.text}</p>
+                    </div>`;
+            }).join('');
+        });
+
+        /* --- SUBMIT POST --- */
+        document.getElementById('postBtn').addEventListener('click', async () => {
+            const input = document.getElementById('storyInput');
+            const text = input.value.trim();
+
+            if (!text) return alert('Please type something out before posting.');
+
+            try {
+                await addDoc(postsCollection, {
+                    text: text,
+                    createdAt: serverTimestamp()
+                });
+                input.value = '';
+            } catch (error) {
+                console.error("Error adding post:", error);
+                alert("Something went wrong. Make sure your Firestore rules are published.");
+            }
+        });
+    </script>
+
+    <script>
+        /* -- MARKET NEWSWIRE -- */
+        const newsData = [
+            { ticker: "U", type: "INCOME PLAY", title: "Unity Option Premium Evaluation", desc: "Sell-to-open implied volatility remains elevated on near-term out-of-the-money calls. Prime setup for technical portfolio income generation.", time: "Just Now" },
+            { ticker: "SOFI", type: "PREMIUM VALUE", title: "Banking Infrastructure Growth", desc: "Sofi holds robust structural positioning beneath the $15 macro floor. High asset liquid premium growth engine.", time: "12m ago" },
+            { ticker: "U", type: "TECH FOCUS", title: "Engine Optimization Upgrades Roll Out", desc: "Unity implementation of next-gen runtime updates triggers renewed developer tracking. Monitoring consolidation patterns close to support levels.", time: "42m ago" },
+            { ticker: "PLTR", type: "MARKET CAP", title: "Institutional Scaling Momentum", desc: "Sustained volume inflow confirms deep data infrastructure integration across sector leaders. Bullish hold validation.", time: "2h ago" },
+            { ticker: "AAL", type: "VOLUME PLAY", title: "Travel Metric Adjustments", desc: "Commercial logistical infrastructure indicators highlight consistent summer scale throughput. Immediate value baseline tracking stable.", time: "3h ago" }
+        ];
+
+        function loadNewswire() {
+            const container = document.getElementById('newswireContainer');
+            if (container) {
+                container.innerHTML = newsData.map(item => `
+                    <div class="news-item">
+                        <div class="news-meta">
+                            <span class="ticker-tag">$${item.ticker}</span>
+                            <span class="ticker-premium">${item.type}</span>
+                            <span class="news-time">${item.time}</span>
+                        </div>
+                        <div class="news-title">${item.title}</div>
+                        <div class="news-desc">${item.desc}</div>
+                    </div>`).join('');
+            }
+        }
+
+        /* -- TRADINGVIEW -- */
+        function initTradingView() {
+            if (typeof TradingView !== 'undefined') {
+                new TradingView.widget({
+                    "width": "100%",
+                    "height": 400,
+                    "symbol": "NYSE:U",
+                    "interval": "D",
+                    "timezone": "Etc/UTC",
+                    "theme": "dark",
+                    "style": "1",
+                    "locale": "en",
+                    "toolbar_bg": "#f1f3f6",
+                    "enable_publishing": false,
+                    "hide_side_toolbar": true,
+                    "allow_symbol_change": true,
+                    "container_id": "tradingview_chart"
+                });
+            }
+        }
+
+        /* -- BOOK (direct Stripe checkout, no cart needed) -- */
+        /* NOTE: Replace stripeLink with your LIVE Stripe Payment Link once your account is activated. The current link is a TEST/sandbox link, so no real payments will process yet. */
+        const books = [
+            {
+                id: 1,
+                name: "The Dream of an 18-Year-Old in a 26-Year-Old Body",
+                subtitle: "How I Learned To Make Weekly Income With Covered Calls",
+                price: 20,
+                image: "https://i.postimg.cc/9FpXfv0N/1783209569690-2.jpg",
+                stripeLink: "https://buy.stripe.com/test_cNi3cw0cZdchfAhdZT1gs00"
+            }
+        ];
+
+        function displayBooks() {
+            const bookList = document.getElementById('book-list');
+            if (bookList) {
+                bookList.innerHTML = books.map(book => `
+                    <div class="product original-product">
+                        <img src="${book.image}" alt="${book.name}">
+                        <h3 style="font-family: 'Montserrat'; font-size: 1.05em; color: white;">${book.name}</h3>
+                        <p style="color:#aaa; font-size:0.8em;">${book.subtitle}</p>
+                        <p style="font-size: 1.3em; font-weight: 800; color: var(--woadie-yellow);">$${book.price.toFixed(2)} <span style="font-size:0.55em; color:#aaa; font-weight:400;">+ shipping</span></p>
+                        <a href="${book.stripeLink}" target="_blank" class="action-btn">BUY NOW</a>
+                    </div>
+                `).join('');
+            }
+        }
+
+        function toggleInfo(id) {
+            const el = document.getElementById(id);
+            if (el.style.display === "none" || el.style.display === "") {
+                el.style.display = "block";
+            } else {
+                el.style.display = "none";
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            displayBooks();
+            loadNewswire();
+            initTradingView();
+        });
+    </script>
+</body>
+</html>
