@@ -472,6 +472,28 @@
         </div>
     </div>
 
+    <div class="content-card" style="border-color: var(--woadie-yellow); max-width: 800px;">
+        <h2 style="color: var(--woadie-yellow);">Stock Scanner</h2>
+        <p style="font-style: italic; color: #aaa; margin-bottom: 5px; font-size: 0.85em;">
+            Filter and sort the market live — tap column headers or use the filter icon to build your own screen.
+        </p>
+        <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
+            {
+                "width": "100%",
+                "height": 500,
+                "defaultColumn": "overview",
+                "defaultScreen": "general",
+                "market": "america",
+                "showToolbar": true,
+                "colorTheme": "dark",
+                "locale": "en"
+            }
+            </script>
+        </div>
+    </div>
+
     <div class="content-card">
         <h2>Covered Call Benefits</h2>
         <div class="benefit" onclick="toggleInfo('b1')">Generates Weekly Income</div>
@@ -597,7 +619,8 @@
                     "width": "100%",
                     "height": 400,
                     "symbol": "NYSE:U",
-                    "interval": "D",
+                    "interval": "1",
+                    "range": "1D",
                     "timezone": "Etc/UTC",
                     "theme": "dark",
                     "style": "1",
@@ -612,7 +635,7 @@
         }
 
         /* -- BOOK (direct Stripe checkout, no cart needed) -- */
-        /* NOTE: Replace stripeLink with your LIVE Stripe Payment Link once your account is activated. The current link is a TEST/sandbox link, so no real payments will process yet. */
+        /* Live Stripe Payment Link is active below. */
         const books = [
             {
                 id: 1,
@@ -620,7 +643,7 @@
                 subtitle: "How I Learned To Make Weekly Income With Covered Calls",
                 price: 20,
                 image: "https://i.postimg.cc/9FpXfv0N/1783209569690-2.jpg",
-                stripeLink: "https://buy.stripe.com/test_cNi3cw0cZdchfAhdZT1gs00"
+                stripeLink: "https://buy.stripe.com/7sYaEX6Wd9z28ls6Bu3VC00"
             }
         ];
 
