@@ -491,6 +491,35 @@
         </div>
     </div>
 
+    <div class="content-card" style="border-color: var(--woadie-yellow); max-width: 800px;">
+        <h2 style="color: var(--woadie-yellow);">Economic Calendar</h2>
+        <p style="font-style: italic; color: #aaa; margin-bottom: 5px; font-size: 0.85em;">
+            Fed announcements, CPI, jobs reports — the events that move the whole market.
+        </p>
+        <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-events.js" async>
+            {
+                "width": "100%",
+                "height": 500,
+                "colorTheme": "dark",
+                "isTransparent": false,
+                "locale": "en",
+                "importanceFilter": "-1,0,1",
+                "countryFilter": "us"
+            }
+            </script>
+        </div>
+    </div>
+
+    <div class="content-card" style="border-color: var(--woadie-yellow); max-width: 800px;">
+        <h2 style="color: var(--woadie-yellow);">Upcoming Earnings</h2>
+        <p style="font-style: italic; color: #aaa; margin-bottom: 5px; font-size: 0.85em;">
+            Know when your covered-call stocks report — earnings can spike IV and move premiums fast.
+        </p>
+        <div class="newswire-container" id="earningsContainer"></div>
+    </div>
+
     <div class="content-card">
         <h2>Covered Call Benefits</h2>
         <div class="benefit" onclick="toggleInfo('b1')">Generates Weekly Income</div>
@@ -510,7 +539,7 @@
     </div>
 
     <div class="content-card" style="text-align: center; border-color: var(--woadie-yellow);">
-        <h2 style="color: var(--woadie-yellow);">You can donate via Cash App</h2>
+        <h2 style="color: var(--woadie-yellow);">Support via Cash App</h2>
         <img src="https://api.qrserver.com/v1/create-qr-code/?data=https://cash.app/$YourCashAppID&size=200x200" alt="QR" style="border: 3px solid white; border-radius: 10px; margin: 10px 0;">
     </div>
 
@@ -609,6 +638,30 @@
             }
         }
 
+        /* -- UPCOMING EARNINGS -- */
+        /* Update this list manually with real report dates as they're announced (check nasdaq.com/market-activity/earnings or your broker's calendar). */
+        const earningsData = [
+            { ticker: "NOK", date: "Oct 22, 2026", time: "Before Open", note: "Q3 report — watch for AI/cloud infrastructure demand guidance." },
+            { ticker: "ARCC", date: "Oct 27, 2026", time: "Before Open", note: "Dividend coverage and NAV per share are the key lines to watch." },
+            { ticker: "U", date: "~Nov 4, 2026", time: "After Close (est.)", note: "Q3 report — not yet officially confirmed, based on prior-year pattern." },
+            { ticker: "CLSK", date: "~Dec 2026", time: "TBD (est.)", note: "Fiscal Q4 — CleanSpark has historically reported mid-December." }
+        ];
+
+        function loadEarnings() {
+            const container = document.getElementById('earningsContainer');
+            if (container) {
+                container.innerHTML = earningsData.map(item => `
+                    <div class="news-item">
+                        <div class="news-meta">
+                            <span class="ticker-tag">$${item.ticker}</span>
+                            <span class="ticker-premium">${item.time}</span>
+                            <span class="news-time">${item.date}</span>
+                        </div>
+                        <div class="news-desc">${item.note}</div>
+                    </div>`).join('');
+            }
+        }
+
         /* -- TRADINGVIEW -- */
         function initTradingView() {
             if (typeof TradingView !== 'undefined') {
@@ -671,6 +724,7 @@
         window.addEventListener('DOMContentLoaded', () => {
             displayBooks();
             loadNewswire();
+            loadEarnings();
             initTradingView();
         });
     </script>
